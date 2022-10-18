@@ -34,6 +34,21 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
 
 
       t.timestamps null: false
+
+      # 姓,名,カナ姓,カナ名
+      t.string :last_name, null: false
+      t.string :first_name, null: false
+      t.string :last_name_kana, null: false
+      t.string :first_name_kana, null: false
+
+      #郵便番号, 電話番号,（会員の）住所
+      t.string :postcode, null: false
+      t.string :telephone_number, null: false
+      t.string :address, null: false
+
+      # 退会フラグ
+      # true=>退会した、false=>退会していない
+      t.boolean :is_deleted, null: false, default: false
     end
 
     add_index :customers, :email,                unique: true
