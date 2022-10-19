@@ -4,7 +4,7 @@ class Admin::ItemsController < ApplicationController
   before_action :if_not_admin
 
   def index
-    @items = Items.all
+    @items = Item.all
   end
 
   def new
