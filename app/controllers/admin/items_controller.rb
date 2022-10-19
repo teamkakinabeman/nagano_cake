@@ -4,7 +4,7 @@ class Admin::ItemsController < ApplicationController
   before_action :if_not_admin
   
   def index
-    @item = Item.all
+    @items = Items.all
   end
 
   def new
@@ -15,7 +15,7 @@ class Admin::ItemsController < ApplicationController
     @item = Item.new(item_params)
     if @item.save
       flash[:notice] = "商品を登録しました。"
-      redirect_to item_path(@item.id)
+      redirect_to adminitem_path(@item.id)
     else
       render 'index'
     end
@@ -31,9 +31,9 @@ class Admin::ItemsController < ApplicationController
   
   def update
     @item = Item.find(params[:id])
-    if @item.update(book_params)
+    if @item.update(item_params)
       flash[:notice] = "商品を更新しました。"
-      redirect_to item_path(@item.id)
+      redirect_to admin_item_path(@item.id)
     else
       render 'edit'
     end
@@ -48,7 +48,7 @@ class Admin::ItemsController < ApplicationController
     redirect_to root_path unless current_user.admin?
   end
   
-  def book_params
+  def item_params
     params.require(:item).permit(:name, :introduction, :unit_price, :is_on_sale)
   end
 
