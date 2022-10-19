@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
+
   root :to =>"public/homes#top"
   get '/about' =>"public/homes#about"
-  namespace :public do
 
+  namespace :public do
+  
   end
+  
+  namespace :admin do
+    resources :items
+  end
+
   # 管理者用
   # URL /admin/sign_in ...
   devise_for :admin, skip:[:registrations, :passwords],controllers:{
