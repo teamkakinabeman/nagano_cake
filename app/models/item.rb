@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  
-  has_one_attached :image
-  
+
+  has_one_attached :item_image
+
 end
