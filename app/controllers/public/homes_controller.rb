@@ -1,2 +1,2 @@
-class Public::HomesController < ApplicationController
+class Public::HomesController < ApplicationController=
 end
