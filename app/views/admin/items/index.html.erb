@@ -7,12 +7,14 @@
       <div>
 
         <% @items.each do |item| %>
+
         <span>No.<%= item.id %></span><br>
-        <span>商品画像：<%= image_tag item.get_item_image %></span><br>
+        <span>商品画像：<%= image_tag item.get_item_image, size:'100x100' %></span><br>
         <span>商品名：<%= item.name %></span><br>
         <span>商品説明文：<%= item.introduction %></span><br>
         <span>税抜き<%= item.unit_price %>円</span><br>
         <span>販売ステータス：<%= item.is_on_sale %></span><br><br>
+
         <% end %>
 
       </div>
