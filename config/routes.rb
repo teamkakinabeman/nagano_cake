@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   root :to =>"public/homes#top"
   get '/about' =>"public/homes#about"
-  resources :addresses, only: [:index, :edit, :create, :update, :destroy]
-  namespace :public do
-
+  scope module: :public do
+    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   end
   # 管理者用
   # URL /admin/sign_in ...
