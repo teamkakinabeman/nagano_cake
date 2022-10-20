@@ -1,8 +1,11 @@
+
+<!--link_to "Log in"の""の部分を"こちら"へ変更（10/20 その）-->
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name) %><br />
+  <%= link_to "こちら", new_session_path(resource_name) %><br />
 <% end %>
 
+<!--link_to "Sign up"の""の部分を"こちら"へ変更（10/20 その-->
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+  <%= link_to "こちら", new_registration_path(resource_name) %><br />
 <% end %>
 
