@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
 
-  belongs_to :user
+  belongs_to :genre
 
   has_one_attached :item_image
 
