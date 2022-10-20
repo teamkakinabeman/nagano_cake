@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   get '/about' =>"public/homes#about"
 
   namespace :public do
-  
+
   end
-  
+
   namespace :admin do
     resources :items
   end

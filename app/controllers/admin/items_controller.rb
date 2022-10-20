@@ -1,7 +1,7 @@
 class Admin::ItemsController < ApplicationController
 
-  # ↓管理者以外はトップページにリダイレクトさせるコード
-  before_action :if_not_admin
+  # ↓管理者以外はトップページにリダイレクトさせるコード　2022/10/20 一旦無効にしてます
+  # before_action :if_not_admin
 
   def index
     @items = Item.all
@@ -43,10 +43,10 @@ class Admin::ItemsController < ApplicationController
 
   private
 
-  # ↓管理者以外はトップページにリダイレクトさせるコード
-  def if_not_admin
-    redirect_to root_path unless current_user.admin?
-  end
+  # ↓管理者以外はトップページにリダイレクトさせるコード　2022/10/20 一旦無効にしてます
+  # def if_not_admin
+  #   redirect_to root_path unless customer_signed_in? && current_customer.admin?
+  # end
 
   def item_params
     params.require(:item).permit(:name, :introduction, :unit_price, :is_on_sale)
