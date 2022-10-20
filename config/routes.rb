@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root :to =>"public/homes#top"
   get '/about' =>"public/homes#about"
+  resources :adresses, only: [:index, :edit, :create, :update, :destroy]
   namespace :public do
 
   end
