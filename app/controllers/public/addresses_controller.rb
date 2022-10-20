@@ -1,15 +1,19 @@
 class Public::AddressesController < ApplicationController
   def index
-    @address = Adress.new
-    @addresses = Adress.all
+    @address = Address.new
+    @addresses = Address.all
+  end
+  
+  def save
+    
   end
 
   def create
-    @adress = Adress.new
+    @address = Address.new
   end
 
   def edit
-    @address = Adress.find(params[:id])
+    @address = Address.find(params[:id])
   end
 
   def update
