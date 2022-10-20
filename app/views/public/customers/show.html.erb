@@ -1,0 +1,26 @@
+<h3>マイページ</h3>
+<h2>登録所法</h2>
+<div class="form-group">
+  <%= f.submit "編集する", class: 'btn btn-success' %>
+</div>
+<table>
+  <th>
+    <th>氏名</th>
+    <th>カナ</th>
+    <th>郵便番号</th>
+    <th>住所</th>
+    <th>電話番号</th>
+    <th>メールアドレス</th>
+  </th>
+  <tr>
+    <td><%= @customer.last_name %><%= @customer.first_name %></td>
+    <td><%= @customer.last_name_kana %><%= @customer.first_name_kana %></td>
+    <td><%= @customer.address %></td>
+    <td><%= @customer.telephone_number %></td>
+    <td><%= @customer.email %></td>
+  </tr>
+</table>
+
+
+ <h2>配送先</h2>　　<%= f.submit "一覧を見る", class: 'btn btn-success' %>
+ <h2>注文履歴</h2>　<%= f.submit "注文履歴", class: 'btn btn-success' %>

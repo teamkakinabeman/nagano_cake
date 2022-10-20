@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root :to =>"public/homes#top"
   get '/about' =>"public/homes#about"
-  resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   namespace :public do
+  resources :customers, only: [:show,:edit,:create,:update]
 
   end
   # 管理者用
