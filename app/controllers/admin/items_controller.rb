@@ -17,7 +17,7 @@ class Admin::ItemsController < ApplicationController
       flash[:notice] = "商品を登録しました。"
       redirect_to admin_items_path
     else
-      render 'index'
+      render 'new'
     end
   end
 
@@ -49,7 +49,7 @@ class Admin::ItemsController < ApplicationController
   # end
 
   def item_params
-    params.require(:item).permit(:name, :introduction, :unit_price, :is_on_sale, :item_image, :genre_id)
+    params.require(:item).permit(:name, :introduction, :unit_price, :is_on_sale, :item_image)
   end
 
 
