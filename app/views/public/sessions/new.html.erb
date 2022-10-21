@@ -1,26 +1,32 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<h3>ログイン</h3>
+  <p>会員の方はこちらからログイン<p>
+<!--form_forだったので訂正（10/20 その）-->
+<%#= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= form_with model: @customer, url: customer_session_path do |f| %>
+  <div class="form-group row">
+    <%= f.label :"メールアドレス" , class: "col-sm-3 control-label" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-sm-4 form-control-static" %>
     </div>
-  <% end %>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :"パスワード", class: "col-sm-3 control-label" %>
+    <%= f.password_field :password, autocomplete: "current-password", class: "col-sm-4 form-control-static" %>
+    </div>
+  </div>
+
+<!--(10/21 その)Remember meは今回画面表示しないのでコメントアウト-->
+  <!--<%# if devise_mapping.rememberable? %>-->
+  <!--  <div class="field">-->
+  <!--    <%#= f.check_box :remember_me %>-->
+  <!--    <%#= f.label :remember_me %>-->
+  <!--  </div>-->
+  <!--<%# end %>-->
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "ログイン",class: 'btn btn-sm btn-primary' %>
   </div>
 
 <% end %>
-
-<%= render "public/shared/links" %>
+<p>会員登録がお済でない方<p>
+<p><%= render "public/shared/links" %>からログインしてください。</p>
