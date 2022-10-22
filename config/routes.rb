@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    resources :customers, only: [:index, :show, :edit, :update]
-  end
+
   root :to =>"public/homes#top"
   get '/about' =>"public/homes#about"
   resources :addresses, only: [:index, :edit, :create, :update, :destroy]
@@ -11,7 +9,10 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root :to => "homes#top"
+    resources :items
+    resources :genres
   end
+
   # 管理者用
   # URL /admin/sign_in ...
   devise_for :admin, skip:[:registrations, :passwords],controllers:{

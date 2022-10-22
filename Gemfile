@@ -59,5 +59,11 @@ gem 'devise'
 
 gem 'net-smtp'
 
+<<<<<<< HEAD
 #10/22ページネーションの設定のためkaminariを使用(しま)
 gem 'kaminari','~> 1.2.1'
+=======
+gem "enum_help"
+
+gem 'rails-i18n'
+>>>>>>> develop
