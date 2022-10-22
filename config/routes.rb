@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   root :to =>"public/homes#top"
-  get '/about' =>"public/homes#about"
-  resources :addresses, only: [:index, :edit, :create, :update, :destroy]
-  namespace :public do
+  get '/about' =>'public/homes#about'
+  post '/orders/confirm' => 'public/orders#confirm'
+  get '/orders/thanks' => 'public/orders#thanks'
 
+  scope module: :public do
+    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+    resources :orders, only: [:new, :create, :index]
   end
 
   namespace :admin do
