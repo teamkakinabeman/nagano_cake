@@ -1,6 +1,6 @@
 <h4>会員情報編集</h4>
 
-<%= form_with model: @customer, local:true do |f| %>
+<%= form_with url: customers_infomation_path, model: @customer, local:true do |f| %>
 
   <div class="form-group col-xs-5">
     <%= f.label :"氏名", class: "col-sm-2 control-label" %>
