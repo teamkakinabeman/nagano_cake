@@ -58,3 +58,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 
 gem 'net-smtp'
+
+#10/22ページネーションの設定のためkaminariを使用(しま)
+gem 'kaminari','~> 1.2.1'
