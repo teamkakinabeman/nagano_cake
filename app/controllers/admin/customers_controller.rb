@@ -1,4 +1,6 @@
 class Admin::CustomersController < ApplicationController
+  bedore_action :authenticate_admin!
+
   def index
     @customers = Customer.page(params[:page])
   end
