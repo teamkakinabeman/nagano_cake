@@ -2,11 +2,12 @@ class Public::AddressesController < ApplicationController
 
   def index
     @address = Address.new
-    @addresses = Address.all
+    @addresses = current_customer.addresses.all
   end
 
   def create
     @address = Address.new(address_params)
+    @address.customer_id = current_customer.id
     if @address.save
       redirect_to request.referer, notice: "新規登録完了しました"
     else
@@ -24,7 +25,7 @@ class Public::AddressesController < ApplicationController
     if address.update(address_params)
       redirect_to addresses_path, notice: "更新完了しました。"
     else
-      render edit
+      render "edit"
     end
   end
 
