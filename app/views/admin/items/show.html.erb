@@ -1,0 +1,17 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-8'>
+
+      <h1>商品詳細</h1><br><br><br>
+
+      <p>No.<%= @item.id %></p>
+      <p>商品画像：<%= image_tag @item.get_item_image, size:'100x100' %></p>
+      <p>商品名：<%= @item.name %></p>
+      <p>商品説明文：<%= @item.introduction %></p>
+      <p>税抜き価格：<%= @item.unit_price %></p>
+      <p>販売ステータス：<%= @item.is_on_sale_i18n %></p>
+
+    </div>
+  </div>
+</div>
+
