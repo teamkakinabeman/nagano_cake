@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   scope module: :public do
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   end
+
+  namespace :admin do
+    root :to => "homes#top"
+  end
   # 管理者用
   # URL /admin/sign_in ...
   devise_for :admin, skip:[:registrations, :passwords],controllers:{

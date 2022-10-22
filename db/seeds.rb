@@ -5,7 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Admin.create!(
-    email: 'test@test.com',
-    password: '******',
-)
+
+
+#　10/20　管理者追加用の記述。emailとパスワードを書き換えてrails db:seedすると登録できる。（しま）
+# Admin.create!(
+#     email: 'admin@test.com',
+#     password: 'password',
+# )
