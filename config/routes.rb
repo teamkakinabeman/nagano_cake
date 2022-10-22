@@ -6,21 +6,24 @@ Rails.application.routes.draw do
 
   namespace :public do
 
-
   end
 
 
   scope module: :public do
+    # 顧客側のマイページ,登録情報編集&更新
     get 'customers/my_page' => 'customers#show'
     get 'customers/information/edit' => 'customers#edit'
     patch 'customers/infomation' => 'customers#update'
-      # resources :customers, only: [:show,:edit,:update]
+    # 顧客側の退会確認画面,退会処理
+    get '/customers/unsubscribe' => 'customers#unsubscribe'
+    patch '/customers/withdraw' => 'customers#withdraw'
   end
 
   namespace :admin do
     root :to => "homes#top"
     resources :items
     resources :genres
+    resources :customers, only: [:index, :edit, :update, :show]
   end
 
   # 管理者用

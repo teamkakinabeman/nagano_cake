@@ -21,13 +21,17 @@ class Public::CustomersController < ApplicationController
     end
   end
 
-  # def unsubscribe
-    # 顧客の退会確認画面
-  # end
+  def unsubscribe
+    @customer = current_customer
+  end
 
-  # def withdraw
-    # 顧客の退会処理(ステータスの更新)
-  # end
+  def withdraw
+    # byebug
+    @customer = current_customer
+    @customer.update(is_deleted: true)
+    reset_session
+    redirect_to root_path
+  end
 
   private
 
