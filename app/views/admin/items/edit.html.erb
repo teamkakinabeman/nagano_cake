@@ -42,17 +42,11 @@
 
         <div class="form-group">
           <label>販売ステータス</label>
-            <%# <%= item.radio_button :is_on_sale, :ture, checked: true  %>
-            <%# <%= item.label :is_on_sale, "販売中", value: true %>
-
-            <%# <%= item.radio_button :is_on_sale, :false %>
-            <%# <%= item.label :is_on_sale, "販売停止中", value: false %>
-
-            <%= item.radio_button :is_on_sale, :on_sale %>
-            <%= item.label :is_on_sale, "販売中" %>
+            <%= item.radio_button :is_on_sale, :on_sale, checked: true  %>
+            <%= item.label :is_on_sale, "販売中", value: true %>
 
             <%= item.radio_button :is_on_sale, :sold_out %>
-            <%= item.label :is_on_sale, "販売停止中" %>
+            <%= item.label :is_on_sale, "販売停止中", value: false %>
         </div>
 
         <div class="form-group">
