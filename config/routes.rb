@@ -2,9 +2,17 @@ Rails.application.routes.draw do
 
   root :to =>"public/homes#top"
   get '/about' =>"public/homes#about"
-  resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   namespace :public do
 
+
+  end
+
+
+  scope module: :public do
+    get 'customers/my_page' => 'customers#show'
+    get 'customers/information/edit' => 'customers#edit'
+    patch 'customers/infomation' => 'customers#update'
+      # resources :customers, only: [:show,:edit,:update]
   end
 
   namespace :admin do

@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     # （10/20 その）public/customersを作成していないため、顧客のマイページへの移動不可能
     # そのため一時的にtopページへの移動させています
     # public/customersを作成後に下記訂正予定
-    root_path
+    customers_my_page_path
   end
 
   def after_sign_out_path_for(resource)
