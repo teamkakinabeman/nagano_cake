@@ -62,3 +62,6 @@ gem 'net-smtp'
 gem "enum_help"
 
 gem 'rails-i18n'
+
+#10/22ページネーションの設定のためkaminariを使用(しま)
+gem 'kaminari','~> 1.2.1'
