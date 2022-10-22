@@ -4,15 +4,17 @@ Rails.application.routes.draw do
   get '/about' =>"public/homes#about"
   namespace :public do
 
-
   end
 
 
   scope module: :public do
+    # 顧客側のマイページ,登録情報編集&更新
     get 'customers/my_page' => 'customers#show'
     get 'customers/information/edit' => 'customers#edit'
     patch 'customers/infomation' => 'customers#update'
-      # resources :customers, only: [:show,:edit,:update]
+    # 顧客側の退会確認画面,退会処理
+    get '/customers/unsubscribe' => 'customers#unsubscribe'
+    patch '/customers/withdraw' => 'customers#withdraw'
   end
 
   namespace :admin do
