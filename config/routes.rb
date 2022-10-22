@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root :to =>"public/homes#top"
   get '/about' =>"public/homes#about"
+  resources :items, only: [:index,:show]
+
   namespace :public do
 
   end
@@ -21,6 +23,7 @@ Rails.application.routes.draw do
     root :to => "homes#top"
     resources :items
     resources :genres
+    resources :customers, only: [:index, :edit, :update, :show]
   end
 
   # 管理者用
