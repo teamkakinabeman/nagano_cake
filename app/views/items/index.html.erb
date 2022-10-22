@@ -12,10 +12,9 @@
               <% end %>
             </span><br>
             <span>商品名：<%= item.name %></span><br>
-            <span>税抜<%= converting_to_jpy(item.unit_price) %></span><br><br>
+            <span>¥ <%= item.add_tax_price.to_s(:delimited) %> (税込)</span><br><br>
           <% end %>
         </div>
-
     </div>
   </div>
 </div>
