@@ -1,0 +1,20 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-8'>
+      <h1>商品一覧</h1>
+
+        <div>
+          <% @items.each do |item| %>
+            <span>No.<%= item.id %></span><br>
+            <span>
+              <%= link_to item_path(item.id) do %>
+              <%= image_tag item.get_item_image, size:'100x100' %>
+              <% end %>
+            </span><br>
+            <span>商品名：<%= item.name %></span><br>
+            <span>¥ <%= item.add_tax_price.to_s(:delimited) %> (税込)</span><br><br>
+          <% end %>
+        </div>
+    </div>
+  </div>
+</div>

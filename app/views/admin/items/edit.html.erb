@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+
+      <h1>商品編集</h1>
+<!--↓10/21エラー文の表示、テンプレート化すると思ったので一旦、コメントアウトしています（しま）-->
+        <!--<% if @item.errors.any? %>-->
+        <!--<h3><%= @item.errors.count %>error prohibited this obj from being saved:</h3>-->
+        <!--<ul>-->
+        <!--  <% @item.errors.full_messages.each do |message| %>-->
+        <!--  <li><%= message %></li>-->
+        <!--  <% end %>-->
+        <!--</ul>-->
+        <!--<% end %>-->
+
+      <%= form_with model: @item, url: admin_item_path(@item), method: :patch do |item| %>
+
+        <div class="form-group">
+          <label>商品画像</label>
+          <%= item.file_field :item_image, accept: "image/*", class: "form-control-file" %>
+        </div>
+
+        <div class="form-group">
+          <label>商品名</label>
+          <%= item.text_field :name, class: "form-control"%>
+        </div>
+
+        <div class="form-group">
+          <label>商品説明</label>
+          <%= item.text_area :introduction, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <label>ジャンル</label>
+          <!--10／20 ここにジャンル選択プルダウン挿入予定（しま）-->
+        </div>
+
+        <div class="form-group">
+          <label>税抜価格</label>
+          <%= item.text_field :unit_price, class: "form-control" %>円
+        </div>
+
+        <div class="form-group">
+          <label>販売ステータス</label>
+            <label><%= item.radio_button :is_on_sale, :on_sale, checked: true  %>販売中</label>
+            <label><%= item.radio_button :is_on_sale, :sold_out %>販売停止中</label>
+        </div>
+
+        <div class="form-group">
+          <%= item.submit '変更を保存', class: "btn btn-success" %>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>
