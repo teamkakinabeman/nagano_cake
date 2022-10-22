@@ -1,6 +1,6 @@
 class Admin::ItemsController < ApplicationController
 
-  # ↓管理者以外はトップページにリダイレクトさせるコード　2022/10/20 一旦無効にしてます
+  # ↓管理者以外はトップページにリダイレクトさせるコード
   before_action :authenticate_admin!
 
   def index
