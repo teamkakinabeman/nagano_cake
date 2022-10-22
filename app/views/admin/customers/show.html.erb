@@ -22,7 +22,7 @@
         <div><%= @customer.address %></div>
         <div><%= @customer.telephone_number %></div>
         <div><%= @customer.email %></div>
-        <% if @customer.is_deleted? %></div>
+        <% if @customer.is_deleted? %>
           <div class="text-black-50">退会</div>
         <% else %>
           <div class="text-success">有効</div>
