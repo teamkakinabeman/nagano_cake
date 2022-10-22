@@ -2,9 +2,9 @@ class Public::OrdersController < ApplicationController
   def new
      @order = Order.new
   end
-  
-  
-  
+
+
+
   def create# Order に情報を保存します
     # ログインユーザーのカートアイテムをすべて取り出して cart_items に入れます
     cart_items = current_customer.cart_items.all
@@ -36,6 +36,7 @@ class Public::OrdersController < ApplicationController
 
   # new 画面から渡ってきたデータをユーザーに確認してもらいます
   def confirm
+    @postage = "800"
     # new 画面から渡ってきたデータを @order に入れます
     @order = Order.new(order_params)
     # view で定義している address_number が"1"だったときにこの処理を実行します
@@ -70,6 +71,7 @@ class Public::OrdersController < ApplicationController
     end
     # カートアイテムの情報をユーザーに確認してもらうために使用します
     @cart_items = current_customer.cart_items.all
+    @total_payment = @@cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
   end
 
   def thanks
