@@ -2,8 +2,12 @@ Rails.application.routes.draw do
   root :to =>"public/homes#top"
   get '/about' =>"public/homes#about"
   namespace :public do
-  resources :customers, only: [:show,:edit,:create,:update]
+  
 
+  end
+  
+  scope module: :public do
+    resources :customers, only: [:show,:edit,:update]
   end
 
   namespace :admin do

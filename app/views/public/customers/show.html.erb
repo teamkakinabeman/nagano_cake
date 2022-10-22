@@ -1,26 +1,37 @@
-<h3>マイページ</h3>
-<h2>登録所法</h2>
-<div class="form-group">
-  <%= f.submit "編集する", class: 'btn btn-success' %>
+<h4>マイページ</h4>
+
+<h4>登録所法</h4>
+<%= link_to "編集する", edit_customer_path(@customer), class: "btn btn btn-success" %>
 </div>
+
 <table>
-  <th>
-    <th>氏名</th>
-    <th>カナ</th>
-    <th>郵便番号</th>
-    <th>住所</th>
-    <th>電話番号</th>
-    <th>メールアドレス</th>
-  </th>
   <tr>
+    <th>氏名</th>
     <td><%= @customer.last_name %><%= @customer.first_name %></td>
+  <tr>
+    <th>カナ</th>
     <td><%= @customer.last_name_kana %><%= @customer.first_name_kana %></td>
-    <td><%= @customer.address %></td>
-    <td><%= @customer.telephone_number %></td>
-    <td><%= @customer.email %></td>
   </tr>
+  <tr>
+    <th>郵便番号</th>
+    <td><%= @customer.postcode %></td>
+  </tr>
+  <tr>
+    <th>住所</th>
+    <td><%= @customer.address %></td>
+  </tr>
+  <tr>
+    <th>電話番号</th>
+    <td><%= @customer.telephone_number %></td>
+  </tr>
+  <tr>
+    <th>メールアドレス</th>
+    <td><%= @customer.email %></td>
 </table>
 
-
- <h2>配送先</h2>　　<%= f.submit "一覧を見る", class: 'btn btn-success' %>
- <h2>注文履歴</h2>　<%= f.submit "注文履歴", class: 'btn btn-success' %>
+<div>
+  <p>配送先</p>　　<%#= link_to "一覧を見る",addressのpath, class: 'btn btn-success' %>
+</div>
+<div>
+  <p>注文履歴</p>　<%#= link_to "一覧を見る",ordersのpath, class: 'btn btn-success' %>
+</div>
