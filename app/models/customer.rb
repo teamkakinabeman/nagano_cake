@@ -5,6 +5,7 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
  has_many :addresses, dependent: :destroy
+ has_many :cart_items, dependent: :destroy
 
   # (10/21 その)バリデーションのmaxlengthはWBSガントチャートの「データ」タブ参考
   # (10/21 その)下記必要最低限のバリデーション、minimumはのちに決めます
