@@ -16,9 +16,11 @@
               <% @items_new.each do |item| %>
                 <div class="col-3" >
                   <div class="items_new">
-                    <p><%= image_tag item.get_item_image, size:'100x100' %></p>
-                    <p><%= item.name %></p>
-                    <p>￥<%= item.unit_price %></p>
+                    <%= link_to item_path(item.id) do %>
+                      <p><%= image_tag item.get_item_image, size:'100x100' %></p>
+                    <% end %>
+                      <p><%= item.name %></p>
+                      <p>￥<%= item.unit_price %></p>
                   </div>
                 </div>
               <% end %>
