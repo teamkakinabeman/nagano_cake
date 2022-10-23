@@ -5,8 +5,8 @@
     <div class="row">
       <div class="col-auto">
         <!--　　　　　　　　　↓「admin_items_path」を記入しないとitem_pathを参照してしまうので記入　-->
-        <%= form_with url: admin_items_path, model: @item, local: true do |form|,  %>
-        <table class="ml-5">
+        <%= form_with url: admin_items_path, model: @item, local: true do |form| %>
+        <table class="ml-4">
           <tr>
             <td>
               <%= form.label "商品画像"%>
@@ -25,10 +25,10 @@
           </tr>
           <tr>
             <td valign="top">
-              <%= form.label "商品説明"%>
+              <%= form.label "商品説明 "%>
             </td>
             <td>
-              <%= form.text_area :introduction,placeholder: 'ここに説明文を記述します', :size=>"42x8"  %>
+              <%= form.text_area :introduction,placeholder: 'ここに説明文を記述します', :size=>"42x8" %>
             </td>
           </tr>
           <tr>
@@ -37,7 +37,7 @@
             </td>
             <td>
               <%= form.collection_select :genre_id, Genre.all, :id, :name,
-                                     :prompt => "--選択してください--" %>
+                                     :prompt => "--選択してください--"%>
             </td>
           </tr>
           <tr>
@@ -52,10 +52,14 @@
             <td>
               <%= form.label "販売ステータス"%>
             </td>
-            <td>
+            <td align="center">
               <label><%= form.radio_button :is_on_sale, :on_sale %> 販売中</label>
-            
-              <label><%= form.radio_button :is_on_sale, :sold_out %> 販売停止中</label>
+              <label ><%= form.radio_button :is_on_sale, :sold_out %> 販売停止中</label>
+            </td>
+            <td 
+              
+            </td>
+              
             </td>
           </tr>
         </table>  
