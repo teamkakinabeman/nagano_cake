@@ -13,7 +13,12 @@ Rails.application.routes.draw do
     # 顧客側の退会確認画面,退会処理
     get '/customers/unsubscribe' => 'customers#unsubscribe'
     patch '/customers/withdraw' => 'customers#withdraw'
+    # 顧客側のカート画面
+    resources :cart_items, only: [:index, :update, :create, :destroy]
+    delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
+
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+
   end
 
   namespace :admin do
