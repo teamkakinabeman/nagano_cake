@@ -17,24 +17,28 @@ class Public::CartItemsController < ApplicationController
 
  def index
   @cart_items = current_customer.cart_items.all
+
   # カートに入ってる商品の合計金額
   @total_payment = @cart_items.inject(0) { |sum, item| sum + item.subtotal }
  end
 
  def update
+  cart_item = CartItem.find(params[:id])
+  cart_item.update(cart_items_params)
+  redirect_to request.referer
 
  end
 
  def destroy
-  @cart_item = CartItem.find(params[:id])
-  @cart_item.destroy
+  cart_item = CartItem.find(params[:id])
+  cart_item.destroy
   redirect_to request.referer
  end
 
 
  def destroy_all
   @cart_items = CartItem.all
-  current_user.cart_items.destroy_all
+  current_customer.cart_items.destroy_all
   redirect_to request.referer
  end
 
