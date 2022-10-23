@@ -7,7 +7,42 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
-        <% if customer_signed_in? %>
+
+        <% if admin_signed_in? %>
+
+          <% if request.fullpath.include? "/admin" %>
+            <li class='mx-1'>
+              <%= link_to admin_items_path,class: 'btn btn-outline-light' do %>商品一覧<% end %>
+            </li>
+            <li class='mx-1'>
+              <%= link_to admin_customers_path,class: 'btn btn-outline-light' do %>会員一覧<% end %>
+            </li>
+            <li class='mx-1'>
+              <%=  link_to admin_root_path,class: 'btn btn-outline-light' do %>注文履歴一覧<% end %>
+            </li>
+            <li class='mx-1'>
+              <%=  link_to admin_genres_path,class: 'btn btn-outline-light' do %>ジャンル一覧<% end %>
+            </li>
+            <li class='mx-1'>
+              <%= link_to destroy_admin_session_path, method: :delete,class: 'btn btn-outline-light' do %>ログアウト<% end %>
+            </li>
+          <% else %>
+            <li class='mx-1'>
+              <%= link_to customers_my_page_path,class: 'btn btn-outline-light' do %>マイページ<% end %>
+            </li>
+            <li class='mx-1'>
+              <%=  link_to items_path,class: 'btn btn-outline-light' do %>商品一覧<% end %>
+            </li>
+            <li class='mx-1'>
+              <%=  link_to items_path,class: 'btn btn-outline-light' do %>カート<% end %>
+            </li>
+            <li class='mx-1'>
+              <%= link_to destroy_customer_session_path, method: :delete,class: 'btn btn-outline-light' do %>ログアウト<% end %>
+            </li>
+          <% end %>
+
+        <% elsif customer_signed_in? %>
+
           <li class='mx-1'>
             <%= link_to customers_my_page_path,class: 'btn btn-outline-light' do %>マイページ<% end %>
           </li>
@@ -20,7 +55,9 @@
           <li class='mx-1'>
             <%= link_to destroy_customer_session_path, method: :delete,class: 'btn btn-outline-light' do %>ログアウト<% end %>
           </li>
+
         <% else %>
+
           <li class='mx-1'>
             <%= link_to about_path,class: 'btn btn-outline-light' do %>
               <i class="fas fa-link"></i> About
@@ -39,7 +76,9 @@
               <i class="fas fa-sign-in-alt"></i> ログイン
             <% end %>
           </li>
+
         <% end %>
+
         </ul>
       </div>
     </div>
