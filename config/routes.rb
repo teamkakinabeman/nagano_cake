@@ -1,5 +1,23 @@
 Rails.application.routes.draw do
+
   root :to =>"public/homes#top"
+  get '/about' =>"public/homes#about"
+  resources :items, only: [:index,:show]
+
+
+  scope module: :public do
+    # 顧客側のマイページ,登録情報編集&更新
+    get 'customers/my_page' => 'customers#show'
+    get 'customers/information/edit' => 'customers#edit'
+    patch 'customers/infomation' => 'customers#update'
+    # 顧客側の退会確認画面,退会処理
+    get '/customers/unsubscribe' => 'customers#unsubscribe'
+    patch '/customers/withdraw' => 'customers#withdraw'
+    # 顧客側のカート画面
+    resources :cart_items, only: [:index, :update, :create, :destroy]
+    delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
+
+    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   get '/about' =>'public/homes#about'
   post '/orders/confirm' => 'public/orders#confirm'
   get '/orders/thanks' => 'public/orders#thanks'
@@ -11,7 +29,11 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root :to => "homes#top"
+    resources :items
+    resources :genres
+    resources :customers, only: [:index, :edit, :update, :show]
   end
+
   # 管理者用
   # URL /admin/sign_in ...
   devise_for :admin, skip:[:registrations, :passwords],controllers:{
