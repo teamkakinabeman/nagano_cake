@@ -1,11 +1,11 @@
 <div class='container'>
-    <h5 class="col-md-7 mb-4 mt-5">
-      <span class="alert-secondary">商品新規登録</span>
+    <h5 class="col-md-7 mb-5 mt-5">
+      <span class="py-2 px-4 bg-ligh alert-secondary">商品新規登録</span>
     </h5>   
     <div class="row">
       <div class="col-auto">
         <!--　　　　　　　　　↓「admin_items_path」を記入しないとitem_pathを参照してしまうので記入　-->
-        <%= form_with url: admin_items_path, model: @item, local: true do |form| %>
+        <%= form_with url: admin_items_path, model: @item, local: true do |form|,  %>
         <table class="ml-5">
           <tr>
             <td>
@@ -24,8 +24,8 @@
             </td>
           </tr>
           <tr>
-            <td>
-              <%= form.label "商品説明文"%>
+            <td valign="top">
+              <%= form.label "商品説明"%>
             </td>
             <td>
               <%= form.text_area :introduction,placeholder: 'ここに説明文を記述します', :size=>"42x8"  %>
@@ -54,8 +54,7 @@
             </td>
             <td>
               <label><%= form.radio_button :is_on_sale, :on_sale %> 販売中</label>
-            </td>
-            <td>
+            
               <label><%= form.radio_button :is_on_sale, :sold_out %> 販売停止中</label>
             </td>
           </tr>
@@ -63,7 +62,7 @@
     
         <div class="center-block text-center">
           <%= form.submit '新規登録', class: "btn-success btn-lg" %>
-        </div>
+        <div class="center-block text-center">
         <% end %>
       </div>
     </div>
