@@ -4,10 +4,6 @@ Rails.application.routes.draw do
   get '/about' =>"public/homes#about"
   resources :items, only: [:index,:show]
 
-  namespace :public do
-
-  end
-
 
   scope module: :public do
     # 顧客側のマイページ,登録情報編集&更新
@@ -20,6 +16,7 @@ Rails.application.routes.draw do
     # 顧客側のカート画面
     resources :cart_items, only: [:index, :update, :create, :destroy]
     delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
+
   end
 
   namespace :admin do
