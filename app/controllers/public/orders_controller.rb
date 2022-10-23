@@ -71,7 +71,7 @@ class Public::OrdersController < ApplicationController
     end
     # カートアイテムの情報をユーザーに確認してもらうために使用します
     @cart_items = current_customer.cart_items.all
-    @total_payment = @@cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
+    @total_payment = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
   end
 
   def thanks
