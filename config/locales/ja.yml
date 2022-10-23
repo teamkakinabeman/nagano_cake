@@ -4,7 +4,7 @@
         is_on_sale:
           on_sale: "販売中"
           sold_out: "販売停止中"
-ja:
+  ja:
     enums:
       order:
         payment_method:

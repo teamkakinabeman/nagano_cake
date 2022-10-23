@@ -61,10 +61,6 @@ gem 'net-smtp'
 
 gem "enum_help"
 
-<<<<<<< HEAD
-gem "rails-i18n"
-=======
 gem 'rails-i18n'
 
 gem 'kaminari','~> 1.2.1'
->>>>>>> develop

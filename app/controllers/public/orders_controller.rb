@@ -35,7 +35,7 @@ class Public::OrdersController < ApplicationController
 
 
   # new 画面から渡ってきたデータをユーザーに確認してもらいます
-  def confirm
+   def confirm
     @postage = "800"
     # new 画面から渡ってきたデータを @order に入れます
     @order = Order.new(order_params)
@@ -44,15 +44,15 @@ class Public::OrdersController < ApplicationController
     if params[:order][:address_number] == "1"
       # @order の各カラムに必要なものを入れます
       @order.postcode = current_customer.postcode
-      @order.name = current_customer.name
+      @order.name = current_customer.last_name
       @order.address = current_customer.address
       # view で定義している address_number が"2"だったときにこの処理を実行します
       # registered は viwe で定義しています
     elsif params[:order][:address_number] == "2"
-      if Address.exists?(name: params[:order][:registered])
-        @order.postcode = Address.find(params[:order][:registered]).postcode
-        @order.name = Address.find(params[:order][:registered]).name
-        @order.address = Address.find(params[:order][:registered]).address
+      if Address.exists?(name: params[:order])
+        @order.postcode = Address.find(params[:order]).postcode
+        @order.name = Address.find(params[:order]).name
+        @order.address = Address.find(params[:order]).address
       else
         # 既存のデータを使っていますのでありえないですが、万が一データが足りない場合は new を render します
         render :new
@@ -67,12 +67,14 @@ class Public::OrdersController < ApplicationController
       end
     else
       # ありえないですが、万が一当てはまらないデータが渡ってきた場合の処理です
-      redirect_to
+      redirect_to request.referer
     end
     # カートアイテムの情報をユーザーに確認してもらうために使用します
     @cart_items = current_customer.cart_items.all
     @total_payment = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
-  end
+   end
+
+
 
   def thanks
   end

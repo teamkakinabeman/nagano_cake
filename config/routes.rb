@@ -17,15 +17,17 @@ Rails.application.routes.draw do
     resources :cart_items, only: [:index, :update, :create, :destroy]
     delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
 
-    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
-  get '/about' =>'public/homes#about'
-  post '/orders/confirm' => 'public/orders#confirm'
-  get '/orders/thanks' => 'public/orders#thanks'
 
-  scope module: :public do
+    post '/orders/confirm' => 'orders#confirm'
+    get '/orders/thanks' => 'orders#thanks'
+
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+
     resources :orders, only: [:new, :create, :index]
+
   end
+
+
 
   namespace :admin do
     root :to => "homes#top"
@@ -48,4 +50,4 @@ Rails.application.routes.draw do
   }
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-end
+  end
