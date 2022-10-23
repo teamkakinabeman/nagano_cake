@@ -9,17 +9,21 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <header>
+  <!--<header>-->
     <!--ヘッダーが作られるまでログアウトしやすいようにログアウトのリンクを作成-->
     <!--ヘッダー作成&完成などで下記記述が必要なくなった場合は削除してくれてOKです。-->
     <!--（10/21 その）-->
-    <div class="d-flex justify-content-center mb-2">
-      <% if customer_signed_in? %>
-        <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
-      <% end %>
-    </div>
-  </header>
+    <!--<div class="d-flex justify-content-center mb-2">-->
+      <%# if customer_signed_in? %>
+        <%#= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+      <%# end %>
+    <!--</div>-->
+    
+  <!--</header>-->
   <body>
-    <%= yield %>
+    <%= render 'layouts/header' %>
+      <main>
+        <%= yield %>
+      </main>
   </body>
 </html>
