@@ -5,41 +5,26 @@
     </div>
     <div class='col-md-8 offset-md-1'>
       <div>
-      <p>ようこそ、ながのCAKEへ!<br>
-      このサイトは、ケーキ販売のECサイトになります。<br>
-      会員でない方も商品の閲覧はできますが、<br>
-      購入には会員登録が必要になります。
-      </p>
+        <p>ようこそ、ながのCAKEへ!<br>
+        このサイトは、ケーキ販売のECサイトになります。<br>
+        会員でない方も商品の閲覧はできますが、<br>
+        購入には会員登録が必要になります。
+        </p>
       </div>
-      <!--（10/21 その）-->
-      <!--下記新着商品については管理者側admin/items機能追加後に編集予定-->
-      <div>
-          <h3>新着商品</h3>
-        <div class="row">
-          <div class=”col-2 offset-md-1″>
-            <p>画像</p>
-            <p>商品名</p>
-            <p>商品値段</p>
+        <h3>新着商品</h3>
+          <div class="row">
+              <% @items_new.each do |item| %>
+                <div class="col-3" >
+                  <div class="items_new">
+                    <%= link_to item_path(item.id) do %>
+                      <p><%= image_tag item.get_item_image, size:'100x100' %></p>
+                    <% end %>
+                      <p><%= item.name %></p>
+                      <p>￥<%= item.unit_price %></p>
+                  </div>
+                </div>
+              <% end %>
           </div>
-          <div class=”col-2″>
-            <p>画像</p>
-            <p>商品名</p>
-            <p>商品値段</p>
-          </div>
-          <div class=”col-2″>
-            <p>画像</p>
-            <p>商品名</p>
-            <p>商品値段</p>
-          </div>
-          <div class=”col-2″>
-            <p>画像</p>
-            <p>商品名</p>
-            <p>商品値段</p>
-          </div>
-        </div>
-    </div>
-    <div>
-      <P>全ての商品一覧へ</P>
-    </div>
+      </div>
   </div>
 </div>

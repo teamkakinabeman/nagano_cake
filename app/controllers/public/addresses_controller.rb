@@ -1,15 +1,19 @@
 class Public::AddressesController < ApplicationController
+
   def index
     @address = Address.new
-    @addresses = Address.all
-  end
-  
-  def save
-    
+    @addresses = current_customer.addresses.all
   end
 
   def create
-    @address = Address.new
+    @address = Address.new(address_params)
+    @address.customer_id = current_customer.id
+    if @address.save
+      redirect_to request.referer, notice: "新規登録完了しました"
+    else
+      @addresses = Address.all
+      render "index"
+    end
   end
 
   def edit
@@ -18,8 +22,11 @@ class Public::AddressesController < ApplicationController
 
   def update
     address = Address.find(params[:id])
-    address.update(address_params)
-    redirect_to addresses_path, notice: "更新完了しました。"
+    if address.update(address_params)
+      redirect_to addresses_path, notice: "更新完了しました。"
+    else
+      render "edit"
+    end
   end
 
   def destroy
@@ -31,7 +38,7 @@ class Public::AddressesController < ApplicationController
   private
 
   def address_params
-    params.require(:adress).permit(:postcode, :address, :name)
+    params.require(:address).permit(:postcode, :address, :name)
   end
 
 end
