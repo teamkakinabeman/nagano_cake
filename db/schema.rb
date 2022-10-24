@@ -105,6 +105,18 @@ ActiveRecord::Schema.define(version: 2022_10_23_040718) do
     t.integer "genre_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string "postcode", null: false
+    t.string "address", null: false
+    t.string "name", null: false
+    t.integer "total_payment", null: false
+    t.integer "postage", null: false
+    t.integer "payment_method", default: 0, null: false
+    t.integer "status", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
 end

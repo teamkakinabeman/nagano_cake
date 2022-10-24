@@ -4,7 +4,7 @@
       <h4 class='alart alert-secondary'>会員情報編集</h4>
     </div>
   </div>
-    <div class='row justify-content-center'>
+    <div class='row py-3 col-md-5 justify-content-center'>
       <%= form_with url: customers_infomation_path, model: @customer, local:true do |f| %>
 
         <div class="row mb-3">
@@ -20,29 +20,30 @@
         </div>
 
         <div class="row mb-3">
-          <%= f.label :"郵便番号", class:"col-md-3" %>
+          <%= f.label :"郵便番号", class:"col-md-4" %>
           <%= f.text_field :postcode %>
         </div>
 
         <div class="row mb-3">
-          <%= f.label :"住所", class:"col-md-3" %>
+          <%= f.label :"住所", class:"col-md-4" %>
           <%= f.text_field :address %>
         </div>
 
         <div class="row mb-3">
-          <%= f.label :"電話番号", class:"col-md-3" %>
+          <%= f.label :"電話番号", class:"col-md-4" %>
           <%= f.text_field :telephone_number %>
         </div>
 
         <div class="row mb-3">
-          <%= f.label :"メールアドレス", class:"col-md-3" %>
+          <%= f.label :"メールアドレス", class:"col-md-4" %>
           <%= f.text_field :email %>
         </div>
 
 
-        <div class="actions">
+        <div class="row mb-3">
+          <div class="col-md-4"> </div>
           <%= f.submit "変更内容を保存",class: 'btn btn-sm btn-success' %>
-          <%= link_to "退会する", customers_unsubscribe_path(@customer), class: 'btn btn-sm btn-danger' %>
+          <%= link_to "退会する", customers_unsubscribe_path(@customer), class: 'offset-md-3 btn btn-sm btn-danger' %>
         </div>
       <% end %>
     </div>

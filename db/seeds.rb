@@ -11,5 +11,5 @@
 
 # Admin.create!(
 #     email: 'admin@test.com',
-#     password: 'pa ssword',
+#     password: 'password',
 # )
