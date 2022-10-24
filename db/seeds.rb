@@ -9,7 +9,7 @@
 
 #　10/20　管理者追加用の記述。emailとパスワードを書き換えてrails db:seedすると登録できる。（しま）
 
-# Admin.create!(
-#     email: 'admin@test.com',
-#     password: 'pa ssword',
-# )
+Admin.create!(
+    email: 'admin@test.com',
+    password: 'password',
+)
