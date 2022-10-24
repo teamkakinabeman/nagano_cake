@@ -69,9 +69,13 @@ class Public::OrdersController < ApplicationController
       # ありえないですが、万が一当てはまらないデータが渡ってきた場合の処理です
       redirect_to request.referer
     end
+
     # カートアイテムの情報をユーザーに確認してもらうために使用します
     @cart_items = current_customer.cart_items.all
-    @total_payment = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
+    # @total_payment = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
+    # ↓しま変更しました11／24）
+    @total_payment = @cart_items.inject(0) { |sum, item| sum + item.subtotal }
+
    end
 
 
@@ -91,6 +95,7 @@ class Public::OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(:postcode, :name, :address)
+
   end
 
   def address_params

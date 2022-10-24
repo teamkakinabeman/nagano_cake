@@ -12,10 +12,12 @@
     <% @cart_items.each do |cart| %>
       <tbody>
         <tr>
-          <td><%= catt.item.name %></td>
-          <td><%= (cart.item.price).to_s(:delimited) %></td>
+          <td><%= cart.item.name %></td>
+          <!--<td>%= (cart.item.price).to_s(:delimited) %></td>-->
+          <td><%= (cart.item.add_tax_price).to_s(:delimited) %></td>
           <td><%= cart.amount %></td>
-          <td><%= (cart.item.price*cart.amount).to_s(:delimited) %></td>
+          <!--<td>%= (cart.item.price*cart.amount).to_s(:delimited) %></td>-->
+          <td><%= (cart.item.add_tax_price*cart.amount).to_s(:delimited) %></td>
         </tr>
       </tbody>
     <% end %>
@@ -24,15 +26,18 @@
     <thead>
       <tr>
         <th>送料</th>
-        <td><% @postage %></td>
+        <!--<td>% @postage %></td>-->
+        <td><%= @postage %></td>
       </tr>
       <tr>
         <th>商品合計</th>
-        <td><% @total_payment.round.to_s(:delimited) %></td>
+        <!--<td>% @total_payment.round.to_s(:delimited) %></td>-->
+        <td><%= @total_payment.round.to_s(:delimited) %></td>
       </tr>
       <tr>
         <th>請求金額</th>
-        <td><%= @postage + @total_payment.to_s(:delimited) %></td>
+        <!--<td>%= @postage + @total_payment.to_s(:delimited) %></td>-->
+        <td><%= (@postage.to_i + @total_payment.to_i).to_s(:delimited) %></td>
       </tr>
     </thead>
   </table>
