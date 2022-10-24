@@ -19,7 +19,7 @@
         </thead>
 
         <tbody>
-          <% @orders.each do |order| %>
+          <%= @orders.each do |order| %>
           <tr>
             <th><%= order.created_at %></th>
             <th><%= order.customer.last_name %><%= order.customer.first_name %></th>
