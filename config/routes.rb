@@ -34,6 +34,8 @@ Rails.application.routes.draw do
     resources :items
     resources :genres
     resources :customers, only: [:index, :edit, :update, :show]
+    resources :orders, only: [:show, :update]
+    resources :order_details, only: [:update]
   end
 
   # 管理者用
