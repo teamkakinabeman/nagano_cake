@@ -19,6 +19,7 @@ class Customer < ApplicationRecord
   validates :address, presence: true , length: { maximum: 161 }
   validates :email, presence: true , length: { maximum: 254 }
   
+  # 姓(last_name)と名(irst_name)を合わせて表示する(顧客一覧画面customers/indexで使用)
   def full_name
     self.last_name + self.first_name
   end

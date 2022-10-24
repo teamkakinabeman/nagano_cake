@@ -1,41 +1,45 @@
-<div class="container px-5 px-sm-0">
-  <div class="row">
-    <div class="col-md-10">
-      <h2><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h2>
-      <table class="table">
+<div class='container'>
+  <div class='row'>
+    <div class='col-6'>
+      <div class="d-flex bd-highlight mb-3 mt-3 ">
+        <h5 class="p-2 bd-highlight">
+          <span class="py-2 px-4 bg-ligh alert-secondary"><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</span>
+        </h5>
+　　　</div>
+      <table class="table table-borderless ">
         <tr>
           <td>会員ID</td>
-          <td><%= @customer.id %></td>
+          <td colspan="2"><%= @customer.id %></td>
         </tr>
 
         <tr>
           <td>氏名</td>
-          <td><%= @customer.last_name %><%= @customer.first_name %></td>
+          <td colspan="2"><%= @customer.last_name %><%= @customer.first_name %></td>
         </tr>
         <tr>
 
           <td>フリガナ</td>
-          <td><%= @customer.last_name_kana %><%= @customer.first_name_kana %></td>
+          <td colspan="2"><%= @customer.last_name_kana %><%= @customer.first_name_kana %></td>
         </tr>
 
         <tr>
           <td>郵便番号</td>
-          <td><%= @customer.postcode %></td>
+          <td colspan="2"><%= @customer.postcode %></td>
         </tr>
 
         <tr>
           <td>住所</td>
-          <td><%= @customer.address %></td>
+          <td colspan="2"><%= @customer.address %></td>
         </tr>
 
         <tr>
           <td>電話番号</td>
-          <td><%= @customer.telephone_number %></td>
+          <td colspan="2"><%= @customer.telephone_number %></td>
         </tr>
 
         <tr>
-          <td>メールアドレ</td>
-          <td><%= @customer.email %></td>
+          <td>メールアドレス</td>
+          <td colspan="2"><%= @customer.email %></td>
         </tr>
 
         <tr>
@@ -48,6 +52,7 @@
         </tr>
 
         <tr>
+          <td></td>
           <td><%= link_to "編集する", edit_admin_customer_path(@customer), class: "btn btn-success" %></td>
           <td><%= link_to "注文履歴一覧を見る", admin_root_path, class: "btn btn-primary" %></td>
         </tr>
