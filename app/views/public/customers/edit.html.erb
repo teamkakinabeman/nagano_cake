@@ -1,12 +1,12 @@
 <div class='container'>
   <div class='row'>
-    <div class='col-md-4'>
-      <h4>会員情報編集</h4>
+    <div class='pt-3 pl-5 ml-5'>
+      <h4 class='alart alert-secondary'>会員情報編集</h4>
     </div>
   </div>
     <div class='row justify-content-center'>
       <%= form_with url: customers_infomation_path, model: @customer, local:true do |f| %>
-    
+
         <div class="row mb-3">
           <%= f.label :"氏名", class:"col-md-3" %>
           <%= f.text_field :last_name  %>

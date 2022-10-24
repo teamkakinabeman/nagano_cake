@@ -1,46 +1,67 @@
-<h2>配送先登録/一覧</h2>
+<div class="container">
+  <div class="row">
+    <div class="pt-5 pl-5 ml-5 alart alert-secondar">
+      <h4 class="alart alert-secondary">配送先登録/一覧</h4>
+    </div>
+  </div>
+      <div>
+        <%= render 'error', address: @address %>
+      </div>
+      <div class="row mt-5">
+          <%= form_with model: @address do |f| %>
 
-<div>
-  <%= render 'error', address: @address %>
-</div>
+          <div class="row mb-3 justify-content-center">
+            <%= f.label :"郵便番号(ハイフンなし)", class:"col-md-6" %>
+            <%= f.text_field :postcode, class:"col-md-6" %>
+          </div>
+          <div class="row mb-3 justify-content-center">
+            <%= f.label :"住所", class:"col-md-6" %>
+            <%= f.text_field :address, class:"col-md-6" %>
+          </div>
+          <div class="row mb-3 justify-content-center">
+            <%= f.label :"宛名", class:"col-md-6" %>
+            <%= f.text_field :name, class:"col-md-6" %>
+          </div>
 
-<div>
-   <%= form_with model: @address do |f| %>
-    <h4>郵便番号(ハイフンなし)</h4>
-      <%= f.text_field :postcode %>
-    <h4>住所</h4>
-      <%= f.text_field :address %>
-    <h4>宛名</h4>
-    　<%= f.text_field :name %>
-    　<%= f.submit  "新規登録",class: "btn btn-success" %>
-  <% end %>
-</div>
+          <div class="row pb-2 justify-content-end">
+            <%= f.submit  "新規登録",class: "btn btn-success" %>
+          </div>
+        <% end %>
+      </div>
 
-<div>
-  <table class="table table-sm">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">郵便番号</th>
-        <th scope="col">住所</th>
-        <th scope="col">宛名</th>
-        <th></th>
-      </tr>
-    </thead>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+
+       <table class="table table-hover table-inverse table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th>郵便番号</th>
+            <th>住所</th>
+            <th>宛名</th>
+            <th></th>
+          </tr>
+        </thead>
     <!-- 2022.10.22  -->
     <!-- レイアウト部分は触ってません  -->
     <!--　りんたろう　-->
-    <% @addresses.each do |address| %>
+        <% @addresses.each do |address| %>
       <tbody>
         <tr>
           <td><%= '〒' + address.postcode %></td>
           <td><%= address.address %></td>
           <td><%= address.name %></td>
-          <td>
-            <%= link_to '編集する', edit_address_path(address.id), class: "btn btn-success" %>
-            <%= link_to '削除する', address_path(address.id),method: :delete, class: "btn btn-danger" %>
+          <td class='justify-content-center'>
+            <%= link_to '編集する', edit_address_path(address.id), class: "btn btn-success btn-sm" %>
+            <%= link_to '削除する', address_path(address.id),method: :delete, class: "btn btn-danger btn-sm" %>
           </td>
         </tr>
       </tbody>
     <% end %>
   </table>
+
+    </div>
+  </div>
 </div>
