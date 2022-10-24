@@ -2,22 +2,35 @@
 <div class="container">
   <div class="row">
    <div class="col-12">
+
       <div class="d-flex bd-highlight mb-3">
         <div class="p-2 bd-highlight">注文履歴一覧</div>
       </div>
+
       <table class="table table-hover table-inverse" >
+
         <thead class="thead-light">
-          <th>購入日時</th>
-          <th>購入者</th>
-          <th>注文個数</th>
-          <th>注文ステータス（余力あれば）</th>
+          <tr>
+            <th>購入日時</th>
+            <th>購入者</th>
+            <th>注文個数</th>
+            <th>注文ステータス（余力あれば）</th>
+          </tr>
         </thead>
 
         <tbody>
-          <!--10/20 商品一覧画面をeachメソッドで表示予定-->
+          <% @orders.each do |order| %>
+          <tr>
+            <th><%= order.created_at %></th>
+            <th><%= order.customer.last_name %><%= order.customer.first_name %></th>
+            <th><%= order.order_details.amount %></th>
+            <th><%= order.status %></th>
+          </tr>
+          <% end %>
         </tbody>
 
       </table>
+
     </div>
   </div>
 </div>
