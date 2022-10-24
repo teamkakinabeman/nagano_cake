@@ -12,11 +12,9 @@
     <% @cart_items.each do |cart| %>
       <tbody>
         <tr>
-          <td><%= cart.item.name %></td>
-          <!--<td>%= (cart.item.price).to_s(:delimited) %></td>-->
+          <td><%= image_tag cart.item.item_image, size: "40x40" %><%= cart.item.name %></td>
           <td><%= (cart.item.add_tax_price).to_s(:delimited) %></td>
           <td><%= cart.amount %></td>
-          <!--<td>%= (cart.item.price*cart.amount).to_s(:delimited) %></td>-->
           <td><%= (cart.item.add_tax_price*cart.amount).to_s(:delimited) %></td>
         </tr>
       </tbody>

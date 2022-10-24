@@ -29,7 +29,7 @@ class Public::OrdersController < ApplicationController
       end
       redirect_to orders_thanks_path
       # ユーザーに関連するカートのデータ(購入したデータ)をすべて削除します(カートを空にする)
-      # cart_items.destroy.all
+      cart_items.destroy_all
   end
 
 
