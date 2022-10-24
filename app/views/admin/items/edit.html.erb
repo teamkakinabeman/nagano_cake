@@ -45,7 +45,6 @@
                 <%= item.label "ジャンル"%>
               </td>
               <td>
-                <!--10／20 ここにジャンル選択プルダウン挿入予定（しま）-->
                 <%= item.collection_select :genre_id, Genre.all, :id, :name ,:size=>"40", class: 'form-control'%>
               </td>
             </tr>
@@ -73,7 +72,7 @@
                 <%= item.submit '変更を保存', class: "btn btn-success" %>
               </td>
             </tr>
-          </table>  
+          </table>
       <% end %>
       </div>
     </div>
