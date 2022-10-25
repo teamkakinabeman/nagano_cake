@@ -5,19 +5,46 @@
       <div class="d-flex bd-highlight mb-3 mt-3 ">
         <h5 class="p-2 bd-highlight"><span class="alert-secondary">注文履歴一覧</span></h5>
       </div>
+
       <table class="table table-hover table-inverse" >
+
         <thead class="thead-light">
-          <th>購入日時</th>
-          <th>購入者</th>
-          <th>注文個数</th>
-          <th>注文ステータス（余力あれば）</th>
+          <tr>
+            <th>購入日時</th>
+            <th>購入者</th>
+            <th>注文個数</th>
+            <th>注文ステータス</th>
+          </tr>
         </thead>
 
         <tbody>
-          <!--10/20 商品一覧画面をeachメソッドで表示予定-->
+
+          <% @orders.each do |order| %>
+          <tr>
+            <th>
+                <%= link_to admin_order_path(order.id), class: "text-dark border-bottom border-dark"  do %>
+                <%= order.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+                <% end %>
+            </th>
+            <th><%= order.customer.last_name %><%= order.customer.first_name %></th>
+            <th>
+                <% @total_amount = 0 %>
+                <% order.order_details.each do |order_detail| %>
+                <% (order_detail.amount).to_i %>
+                <% @total_amount += (order_detail.amount).to_i %>
+                <% end %>
+                <%= @total_amount.to_s %>
+            </th>
+
+            <th><%= order.status_i18n %></th>
+          </tr>
+          <% end %>
         </tbody>
 
       </table>
+
     </div>
+
   </div>
+
 </div>

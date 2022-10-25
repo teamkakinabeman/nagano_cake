@@ -20,7 +20,7 @@
             <%= f.hidden_field :item_id, :value => cart_item.item_id %>
             <%= f.select :amount, *[1..10], {selected: cart_item.amount}  %>
             <%= f.submit "変更", class: "btn btn-sm btn-success" %>
-            <% end %>
+      <% end %>
      　  </th>
         <th><%= (cart_item.subtotal).to_s(:delimited) %></th>
         <th><%= link_to "削除する", cart_item_path(cart_item.id), class: "btn btn-danger", method: :delete %></th>
@@ -39,6 +39,4 @@
     </tboday>
   </table>
 
-  <!--↓ 10/23配送先の選択画面への遷移ボタン。今は無効化中（しま）-->
-  <!--10/24配送先の選択画面実装できたので、無効を解除します（りんたろう）-->
-  <%= link_to "情報入力に進む", new_order_path , class: "btn btn-success" %>
+  <div><%= link_to "情報入力に進む", new_order_path, class: "btn btn-success" %></div>
