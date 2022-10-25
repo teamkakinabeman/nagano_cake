@@ -18,7 +18,14 @@
           <td><%= link_to item.name,admin_item_path(item.id) ,class:"text-dark border-bottom border-dark"%></td>
           <td><%= converting_to_jpy(item.unit_price) %></td>
           <td><%= item.genre.name %></td>
-          <td><%= item.is_on_sale_i18n %></td>
+          <!--<td>-->
+            <%#= item.is_on_sale %>
+            <% if item.is_on_sale == false %>
+              <td class="text-black-50">販売停止中</td>
+            <% else %>
+            <td class="text-success">販売中</td>
+            <% end %>
+          <!--</td>-->
         </tbody>
         <% end %>
       </table>
