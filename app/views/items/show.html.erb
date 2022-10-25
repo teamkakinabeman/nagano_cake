@@ -7,7 +7,7 @@
       <p>商品名：<%= @item.name %></p>
       <p>商品説明文：<%= @item.introduction %></p>
       <p>¥ <%= @item.add_tax_price.to_s(:delimited) %> (税込)</p>
-      <p>販売ステータス：<%= @item.is_on_sale %></p>
+      <p>販売ステータス：<%= @item.is_on_sale_i18n %></p>
 <!--↓10／23個数選択の記述(しま）-->
       <%= form_with model: CartItem, url: cart_items_path, method: :post do |f| %>
       <%= f.hidden_field :item_id, :value => @item.id %>

@@ -1,18 +1,21 @@
 <div class='container'>
-  <div class='row'>
-    <div class='col-md-8'>
+  <div class='row pt-5'>
+    <div class='col-md-12'>
       <h1>商品一覧</h1>
 
-        <div>
+        <div class='row pt-3 row-eq-height'>
           <% @items.each do |item| %>
-            <span>No.<%= item.id %></span><br>
-            <span>
-              <%= link_to item_path(item.id) do %>
-              <%= image_tag item.get_item_image, size:'100x100' %>
-              <% end %>
-            </span><br>
-            <span>商品名：<%= item.name %></span><br>
-            <span>¥ <%= item.add_tax_price.to_s(:delimited) %> (税込)</span><br><br>
+            <div class="col-sm-3">
+              <div class="img-container">
+                <%= link_to item_path(item.id) do %>
+                <%= image_tag item.get_item_image, class: "rounded", size: '200x130' %>
+                <% end %>
+              </div>
+              <p class='pt-2 font-weight-bold'>
+                <%= item.name %><br>
+                ¥ <%= item.add_tax_price.to_s(:delimited) %> (税込)
+              </p>
+            </div>
           <% end %>
         </div>
     </div>
