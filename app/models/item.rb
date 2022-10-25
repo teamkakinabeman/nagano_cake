@@ -7,8 +7,6 @@ class Item < ApplicationRecord
 
   has_one_attached :item_image
 
-  enum is_on_sale: { on_sale: true, sold_out: false }
-  validates :is_on_sale, inclusion: {in: ["on_sale", "sold_out"]}
 
   def get_item_image
     (item_image.attached?) ? item_image : 'no_image.jpg'

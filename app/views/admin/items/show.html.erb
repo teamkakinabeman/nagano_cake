@@ -27,7 +27,11 @@
             </tr>
             <tr>
               <td>販売ステータス　</td>
-              <td><%= @item.is_on_sale_i18n %></td>
+                <% if @item.is_on_sale == false %>
+              <td class="text-black-50">販売停止中</td>
+                <% else %>
+              <td class="text-success">販売中</td>
+                <% end %>
             </td>
           </body>
         </table>
