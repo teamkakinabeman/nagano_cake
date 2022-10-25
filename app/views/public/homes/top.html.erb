@@ -1,26 +1,25 @@
-<div class='container px-5 px-sm-0'>
-  <div class='row'>
-    <div class='col-md-3'>
-      <!--ジャンル検索の部分テンプレート-->
-    </div>
-    <div class='col-md-8 offset-md-1'>
-      <div>
-        <p>ようこそ、ながのCAKEへ!<br>
+<div class='container'>
+  <div class='row my-5'>
+    <div class='col-md-8 offset-md-2 my-5'>
+      <div class='mx-5'>
+        <h5 style='line-height :2;'>ようこそ、ながのCAKEへ!<br>
         このサイトは、ケーキ販売のECサイトになります。<br>
         会員でない方も商品の閲覧はできますが、<br>
         購入には会員登録が必要になります。
-        </p>
+        </h5>
       </div>
-        <h3>新着商品</h3>
-          <div class="row">
+    </div>
+    <div class='col-md-10 offset-md-2 my-5 mx-4'>
+      <h3><strong>新着商品</strong></h3>
+        <div class="row mt-4">
               <% @items_new.each do |item| %>
-                <div class="col-3" >
+                <div class="col-3 mt-4" >
                   <div class="items_new">
                     <%= link_to item_path(item.id) do %>
-                      <p><%= image_tag item.get_item_image, size:'100x100' %></p>
+                      <%= image_tag item.get_item_image, size:'200x150' %>
                     <% end %>
-                      <p><%= item.name %></p>
-                      <p>￥<%= item.unit_price %></p>
+                      <div><%= item.name %></div>
+                      <diV>￥<%= item.unit_price %></diV>
                   </div>
                 </div>
               <% end %>
