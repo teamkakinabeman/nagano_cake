@@ -1,19 +1,22 @@
 <div class='container'>
   <div class='row my-5'>
     <div class='col-md-8 offset-md-2 my-5'>
-      <div class='mx-5'>
+      <div>
+        <div class ="top-image"></div>
         <h5 style='line-height :2;'>ようこそ、ながのCAKEへ!<br>
         このサイトは、ケーキ販売のECサイトになります。<br>
         会員でない方も商品の閲覧はできますが、<br>
         購入には会員登録が必要になります。
         </h5>
       </div>
+      </div>
     </div>
-    <div class='col-md-10 offset-md-2 my-5 mx-4'>
+    <div><%= link_to "全ての商品を見る", items_path %></div>
+    <div class='col-md-auto offset-md-2 my-5 mx-4'>
       <h3><strong>新着商品</strong></h3>
-        <div class="row mt-4">
+        <div class="row mt-4 ml-3">
               <% @items_new.each do |item| %>
-                <div class="col-3 mt-4" >
+                <div class="col-md-3 mt-4" >
                   <div class="items_new">
                     <%= link_to item_path(item.id) do %>
                       <%= image_tag item.get_item_image, size:'200x150' %>
@@ -25,5 +28,6 @@
               <% end %>
           </div>
       </div>
+      
   </div>
 </div>
