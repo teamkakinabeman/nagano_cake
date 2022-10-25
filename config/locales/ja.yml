@@ -5,9 +5,22 @@
           on_sale: "販売中"
           sold_out: "販売停止中"
 
-  ja:
-    enums:
+
       order:
         payment_method:
           credit_card: "クレジットカード"
           transfer: "銀行振込"
+
+        status:
+          waiting_deposit: '入金待ち'
+          confirm_deposit: '入金確認'
+          in_production: '製作中'
+          preparing_shipment: '発送準備中'
+          shipped: '発送済み'
+
+      order_detail:
+        product_status:
+          cannot_make: '製作不可'
+          is_waiting: '製作待ち'
+          is_making: '製作中'
+          completed: '製作完了'
