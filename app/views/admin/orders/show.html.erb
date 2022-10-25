@@ -21,8 +21,8 @@
     <tr>
       <td>注文ステータス　</td>
       <td>
-        <%= form_with model: Order, url: admin_order_path(@order), method: :patch do |f| %>
-        <%= f.select :status, options_for_select(Order.statuses.to_a, selected: @order.status_before_type_cast) %>
+        <%= form_with model: @order, url: admin_order_path(@order), method: :patch do |f| %>
+        <%= f.select :status, Order.statuses.keys.map {|k| [I18n.t("enums.order.status.#{k}"), k]} %>
         <%= f.submit "更新"  %>
         <% end %>
       </td>
@@ -42,15 +42,15 @@
   </thead>
 
   <tbody>
-    <% @orders.each do |order_detail| %>
+    <% @order_details.each do |order_detail| %>
     <tr>
       <td><%= order_detail.item.name %></td>
       <td><%= (order_detail.item.add_tax_price).to_s(:delimited) %></td>
       <td><%= order_detail.amount %></td>
       <td><%= (order_detail.subtotal).to_s(:delimited) %></td>
       <td>
-        <%= form_with model: OrderDetail, url: admin_order_detail_path(order_detail), method: :patch do |f| %>
-        <%= f.select :product_status, options_for_select(OrderDetail.product_statuses.to_a, selected: order_detail.product_status_before_type_cast) %>
+        <%= form_with model: order_detail, url: admin_order_detail_path(order_detail), method: :patch do |f| %>
+        <%= f.select :product_status, OrderDetail.product_statuses.keys.map {|k| [I18n.t("enums.order_detail.product_status.#{k}"), k]} %>
         <%= f.submit "更新"  %>
         <% end %>
       </td>
@@ -65,22 +65,22 @@
       <td>商品合計</td>
       <td>
           <% @sum = 0 %>
-          <% @orders.each do |order_detail| %>
+          <% @order_details.each do |order_detail| %>
           <% (order_detail.subtotal).to_i %>
           <% @sum += (order_detail.subtotal).to_i %>
           <% end %>
-          <%= @sum.to_s %>
+          <%= @sum.to_s %>円
       </td>
     </tr>
 
     <tr>
       <td>送料</td>
-      <td><%= @postage %></td>
+      <td><%= @postage %>円</td>
     </tr>
 
     <tr>
       <td>請求金額合計</td>
-      <td><%= (@sum + @postage).to_s %></td>
+      <td><%= (@sum + @postage).to_s %>円</td>
     </tr>
 
   </tbody>
