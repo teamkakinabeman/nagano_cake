@@ -20,7 +20,7 @@
             <%= f.hidden_field :item_id, :value => cart_item.item_id %>
             <%= f.select :amount, *[1..10], {selected: cart_item.amount}  %>
             <%= f.submit "変更", class: "btn btn-sm btn-success" %>
-            <% end %>
+      <% end %>
      　  </th>
         <th><%= (cart_item.subtotal).to_s(:delimited) %></th>
         <th><%= link_to "削除する", cart_item_path(cart_item.id), class: "btn btn-danger", method: :delete %></th>
