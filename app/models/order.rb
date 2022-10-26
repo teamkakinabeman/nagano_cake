@@ -15,4 +15,8 @@ class Order < ApplicationRecord
      "発送済み":4
   }
 
+validates :postcode, presence: true
+validates :address, presence: true
+validates :name, presence: true
+
 end

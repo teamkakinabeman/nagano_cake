@@ -3,6 +3,9 @@ class Public::OrdersController < ApplicationController
   before_action :authenticate_customer!
 
   def new
+    if current_customer.cart_items.blank?
+      redirect_to cart_items_path
+    end
      @order = Order.new
      @addresses = current_customer.addresses.all
   end
@@ -14,7 +17,7 @@ class Public::OrdersController < ApplicationController
     cart_items = current_customer.cart_items.all
     # 渡ってきた値を @order に入れます
     @order = Order.new(order_params)
-    @order.save
+    if @order.save
       # 取り出したカートアイテムの数繰り返します
       # order_item にも一緒にデータを保存する必要があるのでここで保存します
       cart_items.each do |cart|
@@ -30,6 +33,9 @@ class Public::OrdersController < ApplicationController
       redirect_to orders_thanks_path
       # ユーザーに関連するカートのデータ(購入したデータ)をすべて削除します(カートを空にする)
       cart_items.destroy_all
+    else
+      render 'new'
+    end
   end
 
 
