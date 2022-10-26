@@ -44,17 +44,17 @@
         <%= f.radio_button :address_number, 3, class: "ml-3" %>
         <%= f.label :address_number_3, "新しいお届け先" %>
       </div>
-      <div class="col-10 ml-5 flex-nowrap">
+      <div class="col-10 ml-5 flex-nowrap text-nowrap">
         <%= f.label :postcode, "郵便番号(ハイフンなし)",class: "small col-sm-2 control-label" %>
-        <%= f.text_field :postcode, class: "col-2"%>
+        <%= f.text_field :postcode, class: "col-3" ,:placeholder => "0000000" %>
       </div>
       <div class="col-10 ml-5 flex-wrap">
         <%= f.label :address, "住所",class: "small col-sm-2 control-label" %>
-        <%= f.text_field :address, class: "col-4" %>
+        <%= f.text_field :address, class: "col-4", :placeholder => "東京都渋谷区代々木神園町0-0" %>
       </div>
       <div class="col-10 ml-5 flex-wrap">
         <%= f.label :name, "宛名", class: "small col-sm-2 control-label" %>
-        <%= f.text_field :name, class: "col-1" %>
+        <%= f.text_field :name, class: "col-3", :placeholder => "令和道子" %>
       </div>
       <div class="col-12 text-center mb-1">
         <%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
