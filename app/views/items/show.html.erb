@@ -2,7 +2,6 @@
   <div class='row'>
     <div class='col-md-8'>
 
-      <h1>商品詳細</h1>
       <p><%= image_tag @item.get_item_image, size:'100x100' %></p>
       <p>商品名：<%= @item.name %></p>
       <p>商品説明文：<%= @item.introduction %></p>
@@ -11,8 +10,14 @@
 <!--↓10／23個数選択の記述(しま）-->
       <%= form_with model: CartItem, url: cart_items_path, method: :post do |f| %>
       <%= f.hidden_field :item_id, :value => @item.id %>
-      <%= f.select :amount, *[1..10], { include_blank: '個数選択' }, class: "form-control col-md-2 mb-2 ", required:"required" %>
-      <%= f.submit "カートに入れる"  %>
+      <div class='col-md-7 row flex-nowrap'>
+        <%= f.select :amount, *[1..10], { include_blank: '個数選択' }, class: "form-control col-md-2 mb-2", required:"required" %>
+      </div>
+      <div class='col-3 flex-nowrap'>
+        <%= f.submit "カートに入れる"  %>
+      </div>
+
+
       <% end %>
     </div>
   </div>
