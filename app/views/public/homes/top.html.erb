@@ -1,30 +1,34 @@
-<div class='container px-5 px-sm-0'>
-  <div class='row'>
-    <div class='col-md-3'>
-      <!--ジャンル検索の部分テンプレート-->
-    </div>
-    <div class='col-md-8 offset-md-1'>
+<div class='container'>
+  <div class='row mb-5'>
+    <div class='col-md-8 offset-md-2 mt-3'>
       <div>
-        <p>ようこそ、ながのCAKEへ!<br>
-        このサイトは、ケーキ販売のECサイトになります。<br>
-        会員でない方も商品の閲覧はできますが、<br>
-        購入には会員登録が必要になります。
-        </p>
+        <div class ="top-image">
+          <h5 style='line-height :3;' class='text-white col-10 ml-5 pt-5'>ようこそ、ながのCAKEへ!<br>
+          このサイトは、ケーキ販売のECサイトになります。<br>
+          会員でない方も商品の閲覧はできますが、<br>
+          購入には会員登録が必要になります。
+          </h5>
+        </div>
       </div>
-        <h3>新着商品</h3>
-          <div class="row">
+    </div>
+
+    <div class='col-md-auto offset-md-2 mx-4'>
+      <h3><strong>新着商品</strong></h3>
+        <div class="row mt-2 ml-2">
               <% @items_new.each do |item| %>
-                <div class="col-3" >
+                <div class="col-md-3 mt-4" >
                   <div class="items_new">
                     <%= link_to item_path(item.id) do %>
-                      <p><%= image_tag item.get_item_image, size:'100x100' %></p>
+                      <%= image_tag item.get_item_image, size:'200x150' %>
                     <% end %>
-                      <p><%= item.name %></p>
-                      <p>￥<%= item.unit_price %></p>
+                      <div><%= item.name %></div>
+                      <diV>￥<%= item.unit_price %></diV>
                   </div>
                 </div>
               <% end %>
           </div>
       </div>
   </div>
+  <p style='text-align:right;'><%= link_to "全ての商品を見る＞", items_path, class: 'border-bottom border-primary' %></p>
+
 </div>
