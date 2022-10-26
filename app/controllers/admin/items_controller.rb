@@ -45,8 +45,6 @@ class Admin::ItemsController < ApplicationController
 
   private
 
-  # ↓管理者以外はトップページにリダイレクトさせるコード　2022/10/20 一旦無効にしてます
-
   def item_params
     params.require(:item).permit(:name, :introduction, :unit_price, :is_on_sale, :item_image, :genre_id)
   end
