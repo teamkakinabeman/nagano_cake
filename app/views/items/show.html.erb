@@ -1,19 +1,27 @@
 <div class='container'>
-  <div class='row'>
-    <div class='col-md-8'>
+  <div class='row mt-5 pt-5 col-md-12'>
+      <div class='col-md-5'>
+        <%= image_tag @item.get_item_image, size:'300x220' %>
+      </div>
+      <div class='col-md-6'>
+        <h3 class='font-weight-bold'><%= @item.name %></h3>
+        <p><%= @item.introduction %></p>
+        
+        <%= form_with model: CartItem, url: cart_items_path, method: :post do |f| %>
+        <div class='row col-md-12 pb-3 pt-3'>
+          <h3>¥ <%= @item.add_tax_price.to_s(:delimited) %> <span class='zeikomi'>(税込)</span></h3>
+          <%= f.hidden_field :item_id, :value => @item.id %>
+        </div>
 
-      <h1>商品詳細</h1>
-      <p><%= image_tag @item.get_item_image, size:'100x100' %></p>
-      <p>商品名：<%= @item.name %></p>
-      <p>商品説明文：<%= @item.introduction %></p>
-      <p>¥ <%= @item.add_tax_price.to_s(:delimited) %> (税込)</p>
-      <p>販売ステータス：<%= @item.is_on_sale %></p>
-<!--↓10／23個数選択の記述(しま）-->
-      <%= form_with model: CartItem, url: cart_items_path, method: :post do |f| %>
-      <%= f.hidden_field :item_id, :value => @item.id %>
-      <%= f.select :amount, *[1..10], { include_blank: '個数選択' }, class: "form-control col-md-2 mb-2 ", required:"required" %>
-      <%= f.submit "カートに入れる"  %>
-      <% end %>
-    </div>
+        <div class="row col-md-10 mt-3">
+          <div class='col-5'>
+          <%= f.select :amount, *[1..10], { include_blank: '個数選択' }, class: "form-control mb-2", required:"required" %>
+          </div>
+          <div class='col-3'>
+            <%= f.submit "カートに入れる" , class: 'btn btn-success' %>
+          </div>
+        </div>
+        <% end %>
+      </div>
   </div>
 </div>
