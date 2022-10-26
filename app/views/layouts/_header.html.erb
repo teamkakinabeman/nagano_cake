@@ -1,4 +1,4 @@
-<header>
+<header class="fixed-top">
   <nav class="navbar navbar-expand-lg navbar-dark bg-success p-4">
     <div class="container">
       <a class="navbar-brand" href="/"><span>ながのcake</span></a>
@@ -30,7 +30,7 @@
             </li>
           <% else %>
             <li class="my-auto pr-5 mr-5 text-light">
-              ようこそ、<%= current_customer.last_name %>さん！
+              現在、管理者アカウントでログインしています。
             </li>
             <li class='mx-1'>
               <%= link_to customers_my_page_path,class: 'btn btn-outline-light' do %>マイページ<% end %>
