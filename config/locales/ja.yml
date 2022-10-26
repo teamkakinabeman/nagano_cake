@@ -20,11 +20,11 @@
 
       order_detail:
         product_status:
-          cannot_make: '製作不可'
+          cannot_make: '着手不可'
           is_waiting: '製作待ち'
           is_making: '製作中'
           completed: '製作完了'
-  
+
     views:
       pagination:
         first: "&laquo; 最初"
