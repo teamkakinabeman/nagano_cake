@@ -63,8 +63,8 @@ class Public::OrdersController < ApplicationController
         @order.postcode = params[:order][:postcode]
         @order.address = params[:order][:address]
         @order.name = params[:order][:name]
-     else
-            render 'new'
+     else 
+        render 'new'
      end
    end
 
