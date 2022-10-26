@@ -1,19 +1,20 @@
-<h3>ログイン</h3>
-<%= flash[:notice] %>
-  <p>会員の方はこちらからログイン<p>
-<!--form_forだったので訂正（10/20 その）-->
-<%#= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-<%= form_with model: @customer, url: customer_session_path do |f| %>
-  <div class="form-group row">
+<div class="container">
+  <h5 class="col-7 my-5"><span class="alert-secondary">ログイン</span></h5>
+  <div class="row">
+    <%= flash[:notice] %>
+      <p class="alert-secondary ml-5">会員の方はこちらからログイン<p>
+  </div>
+    <!--form_forだったので訂正（10/20 その）-->
+    <%#= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= form_with model: @customer, url: customer_session_path do |f| %>
+  <div class="form-group row ml-5">
     <%= f.label :"メールアドレス" , class: "col-sm-3 control-label" %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-sm-4 form-control-static" %>
-    </div>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",:placeholder => "sample@example.com", class: "col-sm-4 form-control-static" %>
   </div>
 
-  <div class="form-group row">
+  <div class="form-group row ml-5">
     <%= f.label :"パスワード", class: "col-sm-3 control-label" %>
     <%= f.password_field :password, autocomplete: "current-password", class: "col-sm-4 form-control-static" %>
-    </div>
   </div>
 
 <!--(10/21 その)Remember meは今回画面表示しないのでコメントアウト-->
@@ -24,10 +25,19 @@
   <!--  </div>-->
   <!--<%# end %>-->
 
-  <div class="actions">
-    <%= f.submit "ログイン",class: 'btn btn-sm btn-primary' %>
+  <div class="actions col-8 text-center">
+    <%= f.submit "ログイン",class: 'btn btn-primary' %>
   </div>
 
 <% end %>
-<p>会員登録がお済でない方<p>
-<p><%= render "public/shared/links" %>からログインしてください。</p>
+
+  <div class="row ml-5 mt-3">
+    <p class="alert-secondary">会員登録がお済みでない方<p>
+  </div>
+
+  <div class="row">
+    <div class="col-4 offset-3">
+      <%= link_to "こちら", new_customer_registration_path %> から新規登録を行ってください。
+    </div>
+  </div>
+</div>
