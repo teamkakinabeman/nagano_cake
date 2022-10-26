@@ -59,12 +59,13 @@ class Public::OrdersController < ApplicationController
         @order.name = ship.name
 
         # 新規住所入力であれば
-     elsif params[:order][:address_number] = "3"
+     else params[:order][:address_number] = "3"
         @order.postcode = params[:order][:postcode]
         @order.address = params[:order][:address]
         @order.name = params[:order][:name]
-     else 
-        render 'new'
+        if params[:order][:postcode].blank? || params[:order][:address].blank? || params[:order][:name].blank?
+          redirect_to new_order_path
+        end
      end
    end
 
@@ -73,7 +74,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.all
+    @orders = current_customer.order.all
   end
 
   def show
