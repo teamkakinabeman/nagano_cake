@@ -18,21 +18,20 @@
           <td><%= link_to item.name,admin_item_path(item.id) ,class:"text-dark border-bottom border-dark"%></td>
           <td><%= converting_to_jpy(item.unit_price) %></td>
           <td><%= item.genre.name %></td>
-          <!--<td>-->
-            <%#= item.is_on_sale %>
-            <% if item.is_on_sale == false %>
-              <td class="text-black-50">販売停止中</td>
-            <% else %>
+          <% if item.is_on_sale == false %>
+            <td class="text-black-50">販売停止中</td>
+          <% else %>
             <td class="text-success">販売中</td>
-            <% end %>
-          <!--</td>-->
+          <% end %>
         </tbody>
         <% end %>
       </table>
-      </div>
-        <!--↓ページネーションの記載-->
-        <%= paginate @items %>
-        
+    </div>
+  </div>
+  <div class="row justify-content-center mt-3">
+    <div class='mr-5'>
+       <!--↓ページネーションの記載-->
+      <%= paginate @items %>
     </div>
   </div>
 </div>
