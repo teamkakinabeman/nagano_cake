@@ -5,6 +5,8 @@ class Item < ApplicationRecord
   has_many :order_details
   has_many :items, through: :order_details
 
+  validates :unit_price, presence: true , length: { minimum: 1 }
+
   has_one_attached :item_image
 
 
