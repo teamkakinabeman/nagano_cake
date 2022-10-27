@@ -22,7 +22,7 @@
                       <%= image_tag item.get_item_image, size:'200x150' %>
                     <% end %>
                       <div><%= item.name %></div>
-                      <diV>￥<%= item.unit_price %></diV>
+                      <diV>¥ <%= item.add_tax_price.to_s(:delimited) %></diV>
                   </div>
                 </div>
               <% end %>
