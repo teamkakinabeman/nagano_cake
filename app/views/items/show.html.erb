@@ -6,30 +6,31 @@
       <div class='col-md-6'>
         <h3 class='font-weight-bold'><%= @item.name %></h3>
         <p><%= @item.introduction %></p>
-        
+
         <%= form_with model: CartItem, url: cart_items_path, method: :post do |f| %>
         <div class='row col-md-12 pb-3 pt-3'>
           <h3>¥ <%= @item.add_tax_price.to_s(:delimited) %> <span class='tax'>(税込)</span></h3>
           <%= f.hidden_field :item_id, :value => @item.id %>
         </div>
 
-      <% if @item.is_on_sale? %>
-        <div class="row col-md-10 mt-3">
-          <div class='col-5'>
-          <%= f.select :amount, *[1..10], { include_blank: '個数選択' }, class: "form-control mb-2", required:"required" %>
-          </div>
-          <div class='col-3'>
-            <%= f.submit "カートに入れる" , class: 'btn btn-success' %>
-          </div>
-        </div>
-        
-        <% else %>
-        <div class="row col-md-10 mt-3">
-          <div class='col-5'>
-            <h3>売切れ</h3>
-          </div>
-        </div>
-        <% end %>
+          <% if @item.is_on_sale? %>
+            <div class="row col-md-10 mt-3">
+             <%= flash[:alert] %>
+              <div class='col-5'>
+              <%= f.select :amount, *[1..10], { include_blank: '個数選択' }, class: "form-control mb-2", required:"required" %>
+              </div>
+              <div class='col-3'>
+                <%= f.submit "カートに入れる" , class: 'btn btn-success' %>
+              </div>
+            </div>
+          <% else %>
+            <div class="row col-md-10 mt-3">
+              <div class='col-5'>
+                <h3>売切れ</h3>
+              </div>
+            </div>
+          <% end %>
+          
         <% end %>
       </div>
   </div>
