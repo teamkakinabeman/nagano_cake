@@ -17,8 +17,8 @@ class Order < ApplicationRecord
      shipped: 4
   }
 
-validates :postcode, presence: true
-validates :address, presence: true
-validates :name, presence: true
+validates :postcode, presence: true, length: { maximum: 7 }
+validates :address, presence: true, length: { maximum: 161 }
+validates :name, presence: true, length: { maximum:60 }
 
 end

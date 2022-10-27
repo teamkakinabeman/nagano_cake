@@ -7,7 +7,7 @@
       <div class="col-10">
       <%= form_with url: admin_genres_path, model: @genre, local: true do |f| %>
 
-        <table>
+        <table class="tab">
           <td><strong><%= f.label :name, 'ジャンル名', class: "mr-5" %></strong></td>
           <td><%= f.text_field :name, class: 'form-control' %></td>
           <td><%= f.submit '新規登録', class: 'btn btn-success ml-5' %></td>
