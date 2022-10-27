@@ -1,7 +1,7 @@
 <div class='container'>
   <div class='row pt-4'>
     <div class='col-md-12'>
-      <h1>商品一覧 </h1>
+      <h1>商品一覧 <span class='item_count'>(全<%= Item.count %>件)</span></h1>
 
         <div class='row pt-3 row-eq-height'>
           <% @items.each do |item| %>

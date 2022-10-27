@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+.tax {
+  font-size: medium;
+}
+
+.item_count {
+  font-size: 25px ;
+}

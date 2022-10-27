@@ -1,6 +1,6 @@
 <div class="container">
   <h5 class="col-md-7 mb-5 mt-5">
-      <span class="py-2 px-4 bg-ligh alert-secondary">ジャンル一覧・投稿</span>
+      <span class="px-3 ml-5 bg-ligh alert-secondary">ジャンル一覧・追加</span>
     </h5>
 
     <div class="row">
@@ -8,9 +8,9 @@
       <%= form_with url: admin_genres_path, model: @genre, local: true do |f| %>
 
         <table>
-          <td><%= f.label :name, 'ジャンル名' %></td>
-          <td><%= f.text_field :name, class:'form-control' %></td>
-          <td><%= f.submit '新規登録', class:'btn btn-success' %></td>
+          <td><strong><%= f.label :name, 'ジャンル名', class: "mr-5" %></strong></td>
+          <td><%= f.text_field :name, class: 'form-control' %></td>
+          <td><%= f.submit '新規登録', class: 'btn btn-success ml-5' %></td>
         </table>
        <% end %>
     </div>
@@ -38,6 +38,8 @@
           </tbody>
         </table>
       </div>
+
+    </div>
 
     </div>
   </div>

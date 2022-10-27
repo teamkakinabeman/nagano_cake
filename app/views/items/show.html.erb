@@ -9,7 +9,7 @@
         
         <%= form_with model: CartItem, url: cart_items_path, method: :post do |f| %>
         <div class='row col-md-12 pb-3 pt-3'>
-          <h3>¥ <%= @item.add_tax_price.to_s(:delimited) %> <span class='zeikomi'>(税込)</span></h3>
+          <h3>¥ <%= @item.add_tax_price.to_s(:delimited) %> <span class='tax'>(税込)</span></h3>
           <%= f.hidden_field :item_id, :value => @item.id %>
         </div>
 
