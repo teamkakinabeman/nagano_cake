@@ -27,6 +27,7 @@ class Public::AddressesController < ApplicationController
     if address.update(address_params)
       redirect_to addresses_path, notice: "更新完了しました。"
     else
+      @address =  Address.find(params[:id])
       render "edit"
     end
   end
