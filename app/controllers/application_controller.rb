@@ -8,7 +8,8 @@ class ApplicationController < ActionController::Base
     # そのため一時的にtopページへの移動させています
     # public/customersを作成後に下記訂正予定
     # ↓10／23pathの後ろの(resource)を削除しました。urlにmy_page.1と表示されるため（しま）
-    customers_my_page_path
+    # 10/26マイページからトップページに飛ぶように設定しました。（りんたろう）
+    root_path
   end
 
   def after_sign_out_path_for(resource)
