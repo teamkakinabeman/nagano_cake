@@ -1,7 +1,7 @@
 <div class='container'>
   <h5 class="col-md-7 mb-5 mt-5 offset-2">
       <span class="py-2 px-4 bg-ligh alert-secondary">商品新規登録</span>
-    </h5>   
+    </h5>
     <div class="row">
       <div class="col-10 offset-2">
         <!--　　　　　　　　　↓「admin_items_path」を記入しないとitem_pathを参照してしまうので記入　-->
@@ -45,7 +45,7 @@
                 <%= form.label "税抜き価格"%>
               </td>
               <td>
-                <%= form.text_field :unit_price,placeholder: '1000', class: "form-control" %> 
+                <%= form.text_field :unit_price,placeholder: '1000', class: "form-control" %>
               </td>
               <td>円</td>
             </tr>
@@ -54,8 +54,8 @@
                 <%= form.label "販売ステータス"%>
               </td>
               <td align="center">
-                <label><%= form.radio_button :is_on_sale, :on_sale %> 販売中</label>
-                <label ><%= form.radio_button :is_on_sale, :sold_out %> 販売停止中</label>
+                <label><%= form.radio_button :is_on_sale, :true %> 販売中</label>
+                <label><%= form.radio_button :is_on_sale, :false %> 販売停止中</label>
               </td>
             </tr>
             <tr>
@@ -64,7 +64,7 @@
                 <%= form.submit '新規登録', class: "btn-success btn-lg" %>
               </td>
             </tr>
-          </table>  
+          </table>
         <% end %>
       </div>
     </div>
