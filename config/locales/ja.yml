@@ -1,11 +1,5 @@
   ja:
     enums:
-      item:
-        is_on_sale:
-          on_sale: "販売中"
-          sold_out: "販売停止中"
-
-
       order:
         payment_method:
           credit_card: "クレジットカード"

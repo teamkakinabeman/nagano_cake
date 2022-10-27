@@ -28,9 +28,9 @@
           <td><%= converting_to_jpy(item.unit_price) %></td>
           <td><%= item.genre.name %></td>
           <% if item.is_on_sale? %>
-            <td class="text-black-50">販売停止中</td>
-          <% else %>
             <td class="text-success">販売中</td>
+          <% else %>
+            <td class="text-black-50">販売停止中</td>
           <% end %>
         </tbody>
       <% end %>
