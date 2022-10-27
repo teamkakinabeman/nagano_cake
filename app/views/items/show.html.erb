@@ -13,6 +13,13 @@
           <%= f.hidden_field :item_id, :value => @item.id %>
         </div>
 
+      <% if @item.is_on_sale? %>
+        <div class="row col-md-10 mt-3">
+          <div class='col-5'>
+            <h3>売切れ</h3>
+          </div>
+        </div>
+        <% else %>
         <div class="row col-md-10 mt-3">
           <div class='col-5'>
           <%= f.select :amount, *[1..10], { include_blank: '個数選択' }, class: "form-control mb-2", required:"required" %>
@@ -21,6 +28,7 @@
             <%= f.submit "カートに入れる" , class: 'btn btn-success' %>
           </div>
         </div>
+        <% end %>
         <% end %>
       </div>
   </div>
