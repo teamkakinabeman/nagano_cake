@@ -1,11 +1,13 @@
 <header class="fixed-top bg-danger bg-opacity-75">
-  <nav class="navbar navbar-expand-lg navbar-dark p-1 ml-5">
+  <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-      <a class="navbar-brand" href="/"><span>ながのcake</span></a>
+       <a class="navbar-brand" href="/"><%= image_tag 'logo.jpg', size: '63x63', class: 'ml-5' %></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
         <ul class="navbar-nav ml-auto">
         <% if admin_signed_in? %>
           <% if request.fullpath.include? "/admin" %>
@@ -79,16 +81,13 @@
         <% end %>
 
         </ul>
+
       </div>
+
     </div>
-  </nav>
-  <nav class="navbar navbar-light">
-    <div class="container">
-      <a class="navbar-brand"></a>
       <form class="d-flex">
-      <input class="form-control" type="search" placeholder="文字を入力" aria-label="Search">
-      <button class="btn bg-warning ml-2" type="submit">Search</button>
+        <input class="form-control" type="search" placeholder="文字を入力" aria-label="Search">
+        <button class="btn bg-warning ml-2" type="submit">Search</button>
       </form>
-    </div>
   </nav>
 </header>
