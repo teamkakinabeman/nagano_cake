@@ -1,0 +1,72 @@
+<div class='container'>
+  <h5 class="col-md-7 mb-5 mt-5 offset-2">
+      <span class="py-2 px-4 bg-ligh alert-secondary">商品新規登録</span>
+    </h5>
+    <div class="row">
+      <div class="col-10 offset-2">
+        <!--　　　　　　　　　↓「admin_items_path」を記入しないとitem_pathを参照してしまうので記入　-->
+        <%= form_with url: admin_items_path, model: @item, local: true do |form| %>
+          <table class="ml-4">
+            <tr>
+              <td>
+                <%= form.label "商品画像"%>
+              </td>
+              <td>
+                 <%= form.file_field :item_image, accept: "image/*" %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= form.label "商品名"%>
+              </td>
+              <td>
+                 <%= form.text_field :name,placeholder: '商品名', class: "form-control" %>
+              </td>
+            </tr>
+            <tr>
+              <td valign="top">
+                <%= form.label "商品説明"%>
+              </td>
+              <td>
+                <%= form.text_area :introduction,placeholder: 'ここに説明文を記述します', class: "form-control", :size=>"42x8" %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= form.label "ジャンル"%>
+              </td>
+              <td>
+                <%= form.collection_select :genre_id, Genre.all, :id, :name,
+                                       :prompt => "--選択してください--"%>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= form.label "税抜き価格"%>
+              </td>
+              <td>
+                <%= form.text_field :unit_price,placeholder: '1000', class: "form-control" %>
+              </td>
+              <td>円</td>
+            </tr>
+            <tr>
+              <td>
+                <%= form.label "販売ステータス"%>
+              </td>
+              <td align="center">
+                <label><%= form.radio_button :is_on_sale, :true %> 販売中</label>
+                <label><%= form.radio_button :is_on_sale, :false %> 販売停止中</label>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td align="center">
+                <%= form.submit '新規登録', class: "btn-success btn-lg" %>
+              </td>
+            </tr>
+          </table>
+        <% end %>
+      </div>
+    </div>
+</div>
+

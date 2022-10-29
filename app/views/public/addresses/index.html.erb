@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="row">
+    <div class="pt-5 pl-5 ml-5 alart alert-secondar">
+      <h4 class="alart alert-secondary px-3">配送先登録/一覧</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <%= render 'error', address: @address %>
+  </div>
+
+
+  <%= form_with model: @address do |f| %>
+    <div class="row mt-5 mb-5">
+      <div class="col-md-8">
+        <table class="tab">
+          <tr class="text-nowrap">
+            <th><%= f.label :postcode, "郵便番号(ハイフンなし)", class: "control-label mr-5" %></th>
+            <td><%= f.text_field :postcode, class: "col-md-3 small",:placeholder => "0000000" %>
+          </tr>
+          <tr>
+            <th><%= f.label :address, "住所", class: "control-label" %></th>
+            <td><%= f.text_field :address, class: "small col-md-6 ml-6", :placeholder => "東京都渋谷区代々木神園町0-0", :size=>"70" %></td>
+          </tr>
+          <tr>
+            <th><%= f.label :name, "宛名", class: "control-label" %></th>
+            <td><%= f.text_field :name, class: "small col-md-3", :placeholder => "令和道子" %></td>
+            <td><%= f.submit  "新規登録",class: "btn btn-success btn-sm px-3" %></td>
+          </tr>
+        </table>
+      </div>
+  <% end %>
+    </div>
+
+
+  <div class="row">
+    <div class="col-md-10">
+
+      <table class="table table-hover table-inverse table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th>郵便番号</th>
+            <th>住所</th>
+            <th>宛名</th>
+            <th></th>
+          </tr>
+        </thead>
+        <% @addresses.each do |address| %>
+        <tbody>
+          <tr>
+            <td><%= '〒' + address.postcode %></td>
+            <td><%= address.address %></td>
+            <td><%= address.name %></td>
+            <td class='justify-content-center text-center'>
+              <%= link_to '編集する', edit_address_path(address.id), class: "btn btn-success btn-sm px-3" %>
+              <%= link_to '削除する', address_path(address.id),method: :delete, class: "btn btn-danger btn-sm px-3" %>
+            </td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
+
+    </div>
+  </div>
+</div>
