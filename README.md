@@ -18,7 +18,7 @@ InstagramのDMやメールで通販の注文を受けていたが、情報管理
 
 # アプリケーションの設計
 
- [テーブル定義書](https://docs.google.com/spreadsheets/d/1clKM3BiSynZQx7-yV61K7hVK2t98pMUC/edit#gid=1243549839)
+ [テーブル定義書](https://docs.google.com/spreadsheets/d/1rA6vSK05L73lsa2lxwM-SyrCxSXutnmrxSLDqdE0jH4/edit?usp=sharing)
  
  [アプリケーション詳細設計](https://docs.google.com/spreadsheets/d/15yt2BE6V9NIviBsDipDjAddGOuDTzTra4UhD49EXVWI/edit#gid=549108681)
 
