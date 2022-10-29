@@ -50,18 +50,12 @@ InstagramのDMやメールで通販の注文を受けていたが、情報管理
 ## ER図
 ![チームかき鍋マンER図 drawio](https://user-images.githubusercontent.com/111489156/198765327-d94c74da-6675-44fc-a752-c703988558af.png)
 
-* System dependencies
+## 管理者用アカウント
 
-* Configuration
+- mail : admin@test.com
+- password : password
 
-* Database creation
+※ $ rails db:seed を実行後、ログイン可能です。  
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+※管理者用アカウントを変更したい方は、db/seeds.rb内に設定してあるemailとpasswordのコードを変更してください。   
+rails db:seed を実行後変更完了。
