@@ -26,26 +26,26 @@ InstagramのDMやメールで通販の注文を受けていたが、情報管理
 
 ## 開発環境
 
-・Cloud9（AWS）
+- Cloud9（AWS）
 
 ## バックエンド
 
-・Ruby　3.1．2
-・Rails　6.1．7
-・SQLite3
+- Ruby　3.1．2
+- Rails　6.1．7
+- SQLite3
 
 ## フロントエンド
 
-・HTML
-・SCSS
+- HTML
+- SCSS
 
 ## gem
-・devise
-・bootstrap
-・enum_help
-・font-awesome-rails
-・kaminari,~> 1.2.1
-・rails-i18n
+- devise
+- bootstrap
+- enum_help
+- font-awesome-rails
+- kaminari,~> 1.2.1
+- rails-i18n
 
 ## ER図
 ![チームかき鍋マンER図 drawio](https://user-images.githubusercontent.com/111489156/198765327-d94c74da-6675-44fc-a752-c703988558af.png)
