@@ -13,7 +13,7 @@
               <tbody>
                 <tr>
                   <td><strong>購入者</strong></td>
-                  <td><%= @order.name %></td>
+                  <td><%= @order.customer.last_name %><%= @order.customer.first_name %></td>
                 </tr>
                 <tr>
                   <td><strong>注文日</strong></td>
